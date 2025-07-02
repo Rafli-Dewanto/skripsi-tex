@@ -1,4 +1,5 @@
 # LaTeX intermediate and output files
+out/
 *.aux
 *.bbl
 *.blg

@@ -8,6 +8,8 @@
 \usepackage{longtable}
 \usepackage{float}
 \usepackage{varwidth}
+\usepackage{url}
+\usepackage{hyperref} 
 \usepackage{graphicx}
 \usepackage[a4paper]{geometry}
 \geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=4cm,rmargin=3cm}
@@ -15,97 +17,26 @@
 \pagestyle{fancy}
 \usepackage{setspace}
 \usepackage[authoryear]{natbib}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{tocloft}
 \onehalfspacing
 
 \makeatletter
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-%% Because html converters don't know tabularnewline
+% LyX specific LaTeX commands.
+% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
-%% Variable width box for table cells
+% Variable width box for table cells
 \newenvironment{cellvarwidth}[1][t]
     {\begin{varwidth}[#1]{\linewidth}}
     {\@finalstrut\@arstrutbox\end{varwidth}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-%% \renewcommand{\chapter}[1]{\chapter[#1]{\centering #1}}
-\usepackage{titlesec}
-\usepackage{graphicx}
-\usepackage{indentfirst}
 \titleformat{\chapter}[hang]
   {\normalfont\huge\bfseries\centering}{\thechapter.}{14pt}{\Huge\MakeUppercase}
-%%-------------
-\newcommand{\Judul}{Aplikasi \textit {Review} Artikel Ilmiah dengan metode \textit {Retrieval-Augmented Generation} Dan \textit {Langchain} }
-\newcommand{\JudulInggris}{Scientific Article Review Application with Retrieval-Augmented Generation and Langchain method}
-\newcommand{\Penulis}{Rafli Satya Dewanto}
-\newcommand{\NPM}{51421208}
-\newcommand{\NIRM}{98432324243}
-\newcommand{\JenisTulisan}{Skripsi}
-\newcommand{\Gelar}{Jenjang S1 / Setara Sarjana Muda}
-\newcommand{\Fakultas}{Teknologi Industri}
-\newcommand{\Faculty}{Industrial Technology}
-\newcommand{\Jurusan}{Informatika}
-\newcommand{\Major}{Informatics}
-%%-------------
-\newcommand{\Prodi}{Direktorat Program Diploma Tiga Teknologi Informasi}
-\newcommand{\Tahun}{2025}
-\newcommand{\Bulan}{Juli}
-\newcommand{\Tanggal}{24}
-\newcommand{\Kota}{JAKARTA}
-%%-------------
-\newcommand{\KataKunci}{\textit{Artifical Intelligence, Retrieval-Augmented Generation, Chatbot, Next.js, Gemini}}
-\newcommand{\KeyWords}{Artifical Intelligence, Retrieval-Augmented Generation, Chatbot, Next.js, Gemini}
-%%-------------
-\newcommand{\KoordinatorPI}{Dr. Achmad Fahrurozi, S.Si., M.Si.}
-%%-------------
-\newcommand{\KetuaJurusan}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
-\newcommand{\DosenPembimbingA}{Drs. Agus Sumin, MMSI.}
-\newcommand{\DosenPembimbingB}{Dr. Ricky Agus T., S.T., S.Si., M.M.}
-\newcommand{\KetuaPembimbing}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
-\newcommand{\AnggotaPembimbingA}{Dr. Elfitrin Syahrul, ST., MT.}
-\newcommand{\AnggotaPembimbingB}{Dr. Marliza Ganefi Gumay, S.Kom., MMSI}
-%%------------
-\newcommand{\KetuaUjian}{Dr. Ravi Ahmad Salim}
-\newcommand{\SekUjian}{Prof. Dr. Wahyudi Priyono}
-\newcommand{\AnggotaUjianA}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
-\newcommand{\AnggotaUjianB}{Dr. Elfitrin Syahrul, ST., MT.}
-\newcommand{\AnggotaUjianC}{Dr. Marliza Ganefi Gumay, S.Kom., MMSI}
-%%-------------
-\newcommand{\Ringkasan}{Tulis ringkasan skripsi, pi, atau apa dengan bahasa yang jelas, lugas dan menggambarkan secara singkat tulisan ini.  Sebaiknya tidak lebih dari 150 kata dan sudah menjelaskan dari permasalahan, pembahasan dan penutup.}
-\newcommand{\JumlahPustaka}{50}
-\newcommand{\JumlahHalaman}{89}
-\newcommand{\JumlahHalamanDepan}{xiii}
-\newcommand{\TahunPustaka}{1959-2024}
-%%
-%% Keterangan administratif sidang sarjana
-%%
-\newcommand{\TanggalSidang}{24 Juli 2025}
-\newcommand{\TanggalLulus}{24 Juli 2025}
-\newcommand{\TanggalSah}{}
-\newcommand{\PejabatBagianSidang}{Dr. Edi Sukirman, S.Si., MM., M.I.Kom.}
-\setlength{\headheight}{15pt}
-%%-------------
-%%
-%%Untuk Kata pengantar
-%%
-\newcommand{\Rektor}{Prof. Dr. E.S. Margianti, SE., MM.}
-\newcommand{\Dekan}{Prof. Dr. Ing. Adang Suhendra, S.Si, S.Kom., M.Sc.}
-\newcommand{\KotaPenulis}{Depok}
-\newcommand{\BlnThn}{24 Juli 2025}
-%%-----------
-%%-----------
-% The following commands set the page numbers on the top right
-% except in the beginning of chapters
-%\lhead{}
-%\chead{}
-%\rhead{\thepage}
-%\lfoot{}
-%\cfoot{}
-%\rfoot{}
-%\renewcommand{\headrulewidth}{0pt}
+\input{components/metadata.tex}
 
-
-\usepackage{tocloft}
 % Mengatur judul Daftar Isi, Daftar Gambar, dan Daftar Tabel agar tetap rata tengah dengan ukuran default
 \renewcommand{\cfttoctitlefont}{\hfill\Huge\bfseries}
 \renewcommand{\cftloftitlefont}{\hfill\Huge\bfseries}
@@ -166,7 +97,7 @@
 \renewcommand{\lstlistingname}{Listing}
 
 \begin{document}
-\input{made-hypen.tex} 
+\input{components/made-hypen.tex} 
 \sloppy 
 \thispagestyle{empty}
 
@@ -473,15 +404,15 @@ Penulis\tabularnewline
 \thispagestyle{plain}
 \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
 \listofappendices
-\input{bab-1.tex}
-\input{bab-2.tex}
-\input{bab-3.tex}
-\input{bab-4.tex}
-\input{bab-5.tex}
+\input{components/bab-1.tex}
+\input{components/bab-2.tex}
+\input{components/bab-3.tex}
+\input{components/bab-4.tex}
+\input{components/bab-5.tex}
 \clearpage 
 \phantomsection 
 \renewcommand\bibname{DAFTAR PUSTAKA}\bibliographystyle{apalike}
-\addcontentsline{toc}{chapter}{\bibname}\bibliography{biblio}
+\addcontentsline{toc}{chapter}{\bibname}\bibliography{refs}
 
 
 \chapter*{LAMPIRAN}
