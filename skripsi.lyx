@@ -1,0 +1,5401 @@
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+%% \renewcommand{\chapter}[1]{\chapter[#1]{\centering #1}}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries\centering}{\thechapter.}{14pt}{\Huge\MakeUppercase}
+%%-------------
+\newcommand{\Judul}{DETEKSI, EKSTRAKSI, DAN KALKULASI LUAS BATU GINJAL (\textit {RENAL CALCULI}\textit{}) MENGGUNAKAN YOLOV11 DAN PENGOLAHAN CITRA}
+\newcommand{\JudulInggris}{DETECTION, EXTRACTION, AND CALCULATION OF KIDNEY STONE (\textit {RENAL CALCULI}\textit{}) AREA USING YOLOV11 AND IMAGE PROCESSING}
+\newcommand{\Penulis}{Satria Harya Sulistyo}
+\newcommand{\NPM}{51421396}
+\newcommand{\NIRM}{98432324243}
+\newcommand{\JenisTulisan}{Skripsi}
+\newcommand{\Gelar}{Jenjang S1 / Setara Sarjana Muda}
+\newcommand{\Fakultas}{Teknologi Industri}
+\newcommand{\Faculty}{Industrial Technology}
+\newcommand{\Jurusan}{Informatika}
+\newcommand{\Major}{Informatics}
+%%-------------
+\newcommand{\Prodi}{Direktorat Program Diploma Tiga Teknologi Informasi}
+\newcommand{\Tahun}{2025}
+\newcommand{\Bulan}{Juli}
+\newcommand{\Tanggal}{24}
+\newcommand{\Kota}{JAKARTA}
+%%-------------
+\newcommand{\KataKunci}{\textit{Machine Learning, Object Detection, Image Processing,} \textit{}Batu Ginjal, YOLOv11, Aplikasi Web Streamlit}
+\newcommand{\KeyWords}{Machine Learning, Object Detection, Image Processing, Kidney Stone, YOLOv11, Streamlit Web App}
+%%-------------
+\newcommand{\KoordinatorPI}{Dr. Achmad Fahrurozi, S.Si., M.Si.}
+%%-------------
+\newcommand{\KetuaJurusan}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
+\newcommand{\DosenPembimbingA}{Prof. Dr. Sarifuddin Madenda, S.Si., DEA.}
+\newcommand{\DosenPembimbingB}{Dr. Fitrianingsih, S.Kom., MMSI.}
+\newcommand{\KetuaPembimbing}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
+\newcommand{\AnggotaPembimbingA}{Dr. Elfitrin Syahrul, ST., MT.}
+\newcommand{\AnggotaPembimbingB}{Dr. Marliza Ganefi Gumay, S.Kom., MMSI}
+%%------------
+\newcommand{\KetuaUjian}{Dr. Ravi Ahmad Salim}
+\newcommand{\SekUjian}{Prof. Dr. Wahyudi Priyono}
+\newcommand{\AnggotaUjianA}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
+\newcommand{\AnggotaUjianB}{Dr. Elfitrin Syahrul, ST., MT.}
+\newcommand{\AnggotaUjianC}{Dr. Marliza Ganefi Gumay, S.Kom., MMSI}
+%%-------------
+\newcommand{\Ringkasan}{Tulis ringkasan skripsi, pi, atau apa dengan bahasa yang jelas, lugas dan menggambarkan secara singkat tulisan ini.  Sebaiknya tidak lebih dari 150 kata dan sudah menjelaskan dari permasalahan, pembahasan dan penutup.}
+\newcommand{\JumlahPustaka}{50}
+\newcommand{\JumlahHalaman}{89}
+\newcommand{\JumlahHalamanDepan}{xiii}
+\newcommand{\TahunPustaka}{1959-2024}
+%%
+%% Keterangan administratif sidang sarjana
+%%
+\newcommand{\TanggalSidang}{24 Juli 2025}
+\newcommand{\TanggalLulus}{24 Juli 2025}
+\newcommand{\TanggalSah}{}
+\newcommand{\PejabatBagianSidang}{Dr. Edi Sukirman, S.Si., MM., M.I.Kom.}
+\setlength{\headheight}{15pt}
+%%-------------
+%%
+%%Untuk Kata pengantar
+%%
+\newcommand{\Rektor}{Prof. Dr. E.S. Margianti, SE., MM.}
+\newcommand{\Dekan}{Prof. Dr. Ing. Adang Suhendra, S.Si, S.Kom., M.Sc.}
+\newcommand{\KotaPenulis}{Depok}
+\newcommand{\BlnThn}{24 Juli 2025}
+%%-----------
+%%-----------
+% The following commands set the page numbers on the top right
+% except in the beginning of chapters
+%\lhead{}
+%\chead{}
+%\rhead{\thepage}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+%\renewcommand{\headrulewidth}{0pt}
+
+
+\usepackage{tocloft}
+% Mengatur judul Daftar Isi, Daftar Gambar, dan Daftar Tabel agar tetap rata tengah dengan ukuran default
+\renewcommand{\cfttoctitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftloftitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftlottitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftafterlottitle}{\hfill}
+% Membuat daftar khusus untuk lampiran
+\newlistof{appendices}{app}{Daftar Lampiran}
+% Kode untuk mengatur judul Daftar Lampiran
+\makeatletter
+\renewcommand{\listofappendices}{%
+  \chapter*{DAFTAR LAMPIRAN}%
+  \@starttoc{app}%
+}
+\makeatother
+
+
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+
+
+% Define custom page numbering style
+\usepackage{fancyhdr}
+\newcommand{\appendixpagenumbering}{
+    \renewcommand{\thepage}{L-\arabic{page}}
+}
+
+
+% Mengatur header dan footer
+\fancypagestyle{romanstyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} % Nomor halaman di tengah bawah
+    \renewcommand{\headrulewidth}{0pt} % Hapus garis header
+    \renewcommand{\footrulewidth}{0pt} % Hapus garis footer
+}
+
+\fancypagestyle{arabicstyle}{
+    \fancyhf{}
+    \fancyhead[R]{\thepage} % Nomor halaman di kanan atas
+    \renewcommand{\headrulewidth}{0pt} % Hapus garis header
+    \renewcommand{\footrulewidth}{0pt} % Hapus garis footer
+}
+
+\fancypagestyle{appendixstyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} % Nomor halaman di tengah bawah
+    \renewcommand{\headrulewidth}{0pt} % Hapus garis header
+    \renewcommand{\footrulewidth}{0pt} % Hapus garis footer
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language bahasa
+\language_package default
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "charter" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\float_alignment class
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Indeks
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 4cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{made-hypen.tex} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+sloppy 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{HALAMAN JUDUL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{roman}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{romanstyle}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{10mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+UNIVERSITAS GUNADARMA
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+FAKULTAS 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+MakeUppercase{
+\backslash
+Fakultas}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{10mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename LogoGunadarma.png
+	width 55mm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{3mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size larger
+SKRIPSI
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{7mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="middle" width="13.5cm">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+MakeUppercase{
+\backslash
+Judul}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nama
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Penulis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NPM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NPM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fakultas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Fakultas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Program Studi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Jurusan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dosen Pembimbing 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+DosenPembimbingA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dosen Pembimbing 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+DosenPembimbingB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+vspace{7mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Diajukan Guna Melengkapi Sebagian Syarat Dalam Mencapai 
+\end_layout
+
+\begin_layout Plain Layout
+
+\series bold
+Gelar Setara Sarjana Strata Satu (S1)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Kota
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Tahun
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+
+\size huge
+PERNYATAAN ORISINALITAS DAN PUBLIKASI
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{PERNYATAAN ORISINALITAS DAN PUBLIKASI}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{romanstyle}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+Saya yang bertanda tangan di bawah ini,
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{10mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{-6pt}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="30mm">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="66text%">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nama
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Penulis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NPM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NPM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Judul PI
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+MakeUppercase{
+\backslash
+Judul}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tanggal Sidang
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TanggalSidang
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tanggal Lulus
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+:
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TanggalLulus
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{10mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ menyatakan bahwa tulisan ini adalah merupakan hasil karya saya sendiri dan dapat dipublikasikan sepenuhnya oleh Universitas Gunadarma.
+ Segala kutipan dalam bentuk apa pun telah mengikuti kaidah dan etika yang berlaku.
+ Semua hak cipta dari logo serta produk yang disebut dalam buku ini adalah milik masing-masing pemegang haknya,
+ kecuali disebutkan lain.
+ Mengenai isi dan tulisan merupakan tanggung jawab Penulis,
+ bukan Universitas Gunadarma.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+Demikianlah pernyataan ini dibuat dengan sebenarnya dan dengan penuh kesadaran.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{15mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KotaPenulis,
+ 
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Tanggal
+\backslash
+ 
+\backslash
+Bulan
+\backslash
+ 
+\backslash
+Tahun
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{25mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Penulis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+
+\size huge
+LEMBAR PENGESAHAN
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{LEMBAR PENGESAHAN}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+KOMISI PEMBIMBING
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+NO
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+NAMA
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+KEDUDUKAN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KetuaPembimbing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ketua
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AnggotaPembimbingA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Anggota
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AnggotaPembimbingB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Anggota
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+PANITIA UJIAN
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+NO
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+NAMA
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+KEDUDUKAN
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KetuaUjian
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ketua
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+SekUjian
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sekretaris
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AnggotaUjianA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Anggota
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AnggotaUjianB
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Anggota
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+AnggotaUjianC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Anggota
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{5mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Mengetahui,
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multicolumn="1" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{5mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Dosen Pembimbing
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Bagian Sidang Ujian
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{10mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{10mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+DosenPembimbingB
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KoordinatorPI
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+ABSTRAK
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{ABSTRAK}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Penulis
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NPM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+MakeUppercase{
+\backslash
+Judul}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+Skripsi,
+ Fakultas 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Fakultas
+\end_layout
+
+\end_inset
+
+,
+ Program Studi 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Jurusan
+\end_layout
+
+\end_inset
+
+,
+ Universitas Gunadarma,
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Tahun
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Kata Kunci :
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KataKunci
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+JumlahHalamanDepan 
+\backslash
+
+\end_layout
+
+\end_inset
+
+ + 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+JumlahHalaman 
+\backslash
+
+\end_layout
+
+\end_inset
+
+ + lampiran)
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+
+\emph on
+Deepfake
+\emph default
+,
+ teknologi yang memanfaatkan 
+\emph on
+machine learning
+\emph default
+ untuk memanipulasi video dan gambar,
+ telah menjadi tantangan besar dalam beberapa tahun terakhir.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Daftar Pustaka (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TahunPustaka
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Chapter*
+ABSTRACT
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{ABSTRACT}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Penulis
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+NPM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+MakeUppercase{
+\backslash
+JudulInggris}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+Thesis,
+ Faculty of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Faculty
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Major
+\backslash
+
+\end_layout
+
+\end_inset
+
+ Study Program,
+ Gunadarma University,
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Tahun
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Keywords :
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KeyWords
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+JumlahHalamanDepan 
+\backslash
+
+\end_layout
+
+\end_inset
+
+ + 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+JumlahHalaman 
+\backslash
+
+\end_layout
+
+\end_inset
+
+ + attachment)
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+Deepfake,
+ a technology that uses machine learning to manipulate videos and images,
+ has become a major challenge in recent years.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+ Bibliography (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+TahunPustaka
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Chapter*
+KATA PENGANTAR
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{plain}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{KATA PENGANTAR}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Puji syukur ke hadirat Tuhan Yang Maha Esa atas segala rahmat dan karunia-Nya,
+ serta doa dan dorongan dari berbagai pihak,
+ sehingga skripsi yang berjudul 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Judul
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ dapat diselesaikan dengan baik.
+\end_layout
+
+\begin_layout Standard
+Penyusunan skripsi ini merupakan salah satu syarat untuk mencapai jenjang Setara Sarjana Strata Satu (S1) pada Program Studi Informatika,
+ Fakultas Teknologi Industri,
+ Universitas Gunadarma.
+\end_layout
+
+\begin_layout Standard
+Walaupun dalam penyusunannya menemui berbagai kendala,
+ berkat bantuan dan dorongan dari berbagai pihak,
+ skripsi ini dapat diselesaikan dengan baik.
+ Penulis ingin mengucapkan terima kasih kepada:
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Rektor
+\end_layout
+
+\end_inset
+
+,
+ selaku Rektor Universitas Gunadarma.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Dekan
+\end_layout
+
+\end_inset
+
+,
+ selaku Dekan Fakultas Teknologi Industri,
+ Universitas Gunadarma.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KetuaJurusan 
+\end_layout
+
+\end_inset
+
+,
+ selaku Ketua Program Studi 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Jurusan
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KoordinatorPI
+\end_layout
+
+\end_inset
+
+,
+ selaku Kepala Subbagian Sidang PI Fakultas Teknologi Industri.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+DosenPembimbingA
+\backslash
+
+\end_layout
+
+\end_inset
+
+ dan 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+DosenPembimbingB
+\end_layout
+
+\end_inset
+
+,
+ sebagai Dosen Pembimbing yang di tengah-tengah aktivitas dan kesibukannya telah membimbing dan memberikan dorongan serta dukungan,
+ sehingga penulisan ini dapat diselesaikan.
+\end_layout
+
+\begin_layout Enumerate
+Orang tua dan adik-adik tercinta yang selalu mendukung dan terus memberikan motivasi.
+\end_layout
+
+\begin_layout Enumerate
+Seluruh rekan seperjuangan di Universitas Gunadarma yang telah banyak membantu selama proses penulisan.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Semua pihak yang tidak bisa disebutkan yang telah membantu penyelesaian skripsi ini,
+ diucapkan juga terima kasih atas segala bantuan dan sarannya.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+indent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sebagai manusia biasa yang tidak luput dari kesalahan,
+ penulis menyadari bahwa skripsi ini masih jauh dari sempurna dan memiliki banyak kekurangan.
+ Oleh karena itu,
+ penulis dengan terbuka menerima kritik dan saran yang bersifat membangun demi perbaikan di masa yang akan datang.
+ Semoga skripsi ini dapat memberikan manfaat bagi para pembaca dan menjadi kontribusi kecil bagi kemajuan ilmu pengetahuan.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing single
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{15mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align right
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+KotaPenulis
+\end_layout
+
+\end_inset
+
+,
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+BlnThn
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{10pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Penulis
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{25mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Penulis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{7mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{plain}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{DAFTAR ISI}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+contentsname{DAFTAR ISI}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{7mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{plain}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+listtablename{DAFTAR TABEL}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{7mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{plain}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+listfigurename{DAFTAR GAMBAR}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{plain}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listofappendices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+PENDAHULUAN
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{plain}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{arabicstyle}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Latar Belakang Masalah
+\end_layout
+
+\begin_layout Standard
+Meningkatnya kasus batu ginjal di Indonesia menjadi perhatian serius di bidang kesehatan,
+ mengingat kondisi ini dapat menyebabkan komplikasi berat seperti infeksi,
+ kerusakan fungsi ginjal,
+ bahkan kematian jika tidak ditangani secara tepat waktu.
+\end_layout
+
+\begin_layout Section
+Ruang Lingkup
+\end_layout
+
+\begin_layout Standard
+Batasan-batasan tersebut adalah sebagai berikut.
+\end_layout
+
+\begin_layout Enumerate
+Citra
+\end_layout
+
+\begin_layout Section
+Tujuan Penelitian
+\end_layout
+
+\begin_layout Standard
+Tujuan penelitian yang akan dibahas adalah sebagai berikut.
+\end_layout
+
+\begin_layout Enumerate
+Mengembangkan model
+\end_layout
+
+\begin_layout Section
+Sistematika Penulisan
+\end_layout
+
+\begin_layout Standard
+Sistematika yang digunakan dalam penulisan ini mencakup beberapa bagian penting,
+ di antaranya:
+\end_layout
+
+\begin_layout Enumerate
+PENDAHULUAN
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Bab ini berisi pendahuluan yang menguraikan latar belakang masalah yang melandasi pemilihan topik penelitian,
+ didukung oleh data relevan dan perbandingan dengan penelitian terdahulu,
+ yang menyoroti kelemahan atau perbedaan pendekatan.
+ Ruang lingkup penelitian dibatasi secara jelas untuk fokus pada persoalan yang dikaji.
+ Tujuan penelitian ini adalah untuk menjawab masalah penelitian dan menghasilkan luaran yang diharapkan.
+ Sistematika penulisan laporan skripsi ini akan disusun secara naratif,
+ dimulai dari bab pendahuluan yang menguraikan konteks penelitian,
+ diikuti oleh tinjauan pustaka yang membahas landasan teoretis,
+ metodologi penelitian yang menjelaskan pendekatan dan teknik pengumpulan data,
+ hasil penelitian dan pembahasan yang menganalisis temuan,
+ hingga kesimpulan dan saran yang merangkum hasil penelitian dan implikasinya.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+TINJAUAN PUSTAKA
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Bab ini merupakan tinjauan pustaka yang disusun untuk memberikan landasan teoretis dan empiris yang kokoh dalam mendukung pendekatan pemecahan masalah yang diusulkan.
+ Bab ini menguraikan secara komprehensif hasil penelitian sejenis yang relevan dengan tema yang dipilih,
+ dengan menekankan pada kontribusi penelitian-penelitian tersebut terhadap pengembangan kerangka teoretis dan metodologis penelitian ini.
+ Selain itu,
+ tinjauan pustaka ini juga berfungsi untuk memperkuat argumentasi penelitian dengan menunjukkan bukti-bukti empiris dari penelitian sebelumnya,
+ serta mengidentifikasi celah penelitian yang akan diisi oleh penelitian ini.
+ Tinjauan pustaka ini tidak hanya merangkum literatur yang ada,
+ tetapi juga menganalisis dan mensintesisnya untuk membangun dasar yang kuat bagi penelitian ini.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+METODE PENELITIAN
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Bab ini merupakan bagian perancangan yang menguraikan secara komprehensif prosedur yang ditempuh untuk mencapai tujuan penelitian,
+ mencakup detail peralatan,
+ bahan,
+ teknik pengumpulan dan analisis data,
+ model pendekatan,
+ serta rancangan penelitian.
+ Uraian ini harus memungkinkan replikasi penelitian,
+ dengan langkah-langkah yang dijelaskan secara kronologis dan sistematis.
+ Pada penelitian di bidang ilmu komputer,
+ penjelasan mencakup peralatan,
+ algoritma/metode,
+ dan prosedur implementasi (misalnya,
+ Prototype,
+ SDLC,
+ Agile).
+ Alur penelitian divisualisasikan dalam bagan,
+ dan struktur pembahasan hasil dipengaruhi oleh metode yang dipilih.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+HASIL DAN PEMBAHASAN
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Bab ini menyajikan hasil penelitian yang diperoleh,
+ disertai dengan analisis mendalam untuk menjawab tujuan penelitian yang telah ditetapkan.
+ Pada kasus penelitian yang menghasilkan rancangan,
+ bab ini memuat deskripsi rinci hasil rancangan tersebut,
+ termasuk evaluasi komprehensif terhadap kelebihan dan keterbatasan yang teridentifikasi.
+ Analisis ini dilakukan secara sistematis dan objektif,
+ dengan mengacu pada kerangka teoretis dan metodologis yang telah ditetapkan sebelumnya.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+PENUTUP
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Bagian penutup ini terdiri dari kesimpulan,
+ yang merangkum jawaban atas masalah penelitian berdasarkan temuan yang diperoleh,
+ dan saran,
+ yang mengusulkan pengembangan lebih lanjut dari hasil penelitian yang telah dipaparkan dalam kesimpulan.
+\end_layout
+
+\end_deeper
+\begin_layout Chapter
+TINJAUAN PUSTAKA
+\end_layout
+
+\begin_layout Section
+Kajian Penelitian
+\end_layout
+
+\begin_layout Standard
+Penelitian yang dilakukan dalam pembuatan sistem deteksi,
+ ekstraksi,
+ dan penghitungan luas batu ginjal menggunakan gabungan YOLO dan pengolahan citra ini dilakukan dengan mempelajari penelitian-penelitian yang sudah dilakukan oleh peneliti terdahulu.
+ Penelitian yang dikaji mengutamakan penelitian seputar deteksi batu ginjal dengan menggunakan model algoritma 
+\emph on
+machine learning
+\emph default
+ You Only Look Once (YOLO) dan perhitungan luas batu ginjal tersebut dengan pendekatan pengolahan citra.
+\end_layout
+
+\begin_layout Subsection
+
+\emph on
+Real-Time Object Detection in Medical Imaging Using YOLO Models for Kidney Stone Detection
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "billah12s"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Penelitian ini membahas deteksi batu ginjal secara real-time menggunakan model YOLOv8 dan YOLOv10 pada citra CT 
+\emph on
+scan
+\emph default
+ medis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{20pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tabel 2.1 menjelaskan secara ringkas penelitian-penelitian terdahulu terhadap deteksi,
+ ekstraksi,
+ dan penghitungan luas batu ginjal menggunakan gabungan YOLO dan pengolahan citra yang sudah dikaji.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-10pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\paragraph_spacing other 0
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rangkuman Penelitian Terdahulu
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-20pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="middle" width="0.5cm">
+<column alignment="left" valignment="top" width="3cm">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="5cm">
+<row endhead="true" endfirsthead="true">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+No
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+Peneliti
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\size footnotesize
+Judul Penelitian
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size footnotesize
+Hasil
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "billah12s"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\emph on
+Real-Time Object Detection in Medical Imaging Using YOLO Models for Kidney Stone Detection
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+Hasil menunjukkan bahwa YOLOv10 unggul dalam akurasi (91% dibandingkan 88% untuk YOLOv8)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-40pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\emph on
+Flowchart
+\end_layout
+
+\begin_layout Standard
+Secara formal,
+ 
+\emph on
+flowchart
+\emph default
+ adalah representasi diagramatik dari langkah-langkah suatu algoritma.
+ Dalam 
+\emph on
+flowchart
+\emph default
+,
+ digunakan kotak dengan bentuk berbeda untuk menunjukkan jenis operasi yang berbeda.
+ Kotak-kotak ini kemudian dihubungkan oleh garis dengan panah yang menunjukkan aliran atau arah yang harus diikuti untuk mengetahui langkah selanjutnya.
+ Garis penghubung ini dikenal sebagai garis alir (
+\emph on
+flow line
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Flowchart
+\emph default
+ program adalah alat yang sangat berguna dalam pengembangan program.
+ Pertama,
+ kesalahan atau kelalaian dapat lebih mudah dideteksi dari 
+\emph on
+flowchart
+\emph default
+ program daripada dari program itu sendiri karena 
+\emph on
+flowchart
+\emph default
+ program adalah representasi bergambar dari logika program.
+ Kedua,
+ 
+\emph on
+flowchart
+\emph default
+ program dapat diikuti dengan mudah dan cepat.
+ Ketiga,
+ ini berfungsi sebagai dokumentasi,
+ yang dapat sangat membantu jika diperlukan modifikasi program di masa mendatang.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Flowchart
+\emph default
+ dapat digunakan untuk menunjukkan urutan langkah untuk melakukan pekerjaan apa pun.
+ Rangkaian operasi sederhana yang melibatkan penerimaan 
+\emph on
+input
+\emph default
+,
+ pelaksanaan operasi aritmetika pada 
+\emph on
+input
+\emph default
+,
+ dan menampilkannya kepada pengguna dapat digunakan untuk menunjukkan struktur logika sekuensial dari suatu program 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "chaudhuri2020flowchart"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Simbol Standar 
+\emph on
+Flowchart
+\emph default
+ Program
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+(Sumber:
+ 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "chaudhuri2020flowchart"
+literal "false"
+
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-25pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="11" columns="2">
+<features islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="middle" width="4cm">
+<column alignment="left" valignment="middle" width="9.5cm">
+<row endhead="true" endfirsthead="true">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Simbol
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+Keterangan
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_terminal.png
+	height 1.3cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Terminal:
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menunjukkan awal dan akhir dari rangkaian proses yang berhubungan dengan komputer.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_io.png
+	height 1cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Input/Output
+\emph default
+ (Masukan/Keluaran):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menunjukkan operasi 
+\emph on
+input/output
+\emph default
+ apa pun.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_proc.png
+	height 1cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pemrosesan Komputer (
+\emph on
+Computer Processing
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menunjukkan pemrosesan apa pun yang dilakukan oleh sistem komputer.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_predproc.png
+	height 1cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pemrosesan Tertentu (
+\emph on
+Predefined processing
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menunjukkan proses apa pun yang tidak didefinisikan secara khusus dalam 
+\emph on
+flowchart
+\emph default
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_comm.png
+	height 1cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Komentar (
+\emph on
+Comment
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menulis pernyataan penjelasan yang diperlukan untuk memperjelas sesuatu.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_fl.png
+	height 1.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Garis Alir (
+\emph on
+Flow line
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menghubungkan simbol-simbol 
+\emph on
+flowchart
+\emph default
+.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_docio.png
+	height 1.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Masukan/Keluaran Dokumen (
+\emph on
+Document Input/Output
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan ketika 
+\emph on
+input
+\emph default
+ berasal dari dokumen dan 
+\emph on
+output
+\emph default
+ menuju ke dokumen.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_deci.png
+	height 1.8cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Keputusan (
+\emph on
+Decision
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menunjukkan titik mana pun dalam proses di mana keputusan harus dibuat untuk menentukan tindakan selanjutnya.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_oncon.png
+	height 1.7cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Penghubung Halaman (
+\emph on
+On-page Connector
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menghubungkan bagian-bagian 
+\emph on
+flowchart
+\emph default
+ yang dilanjutkan pada halaman yang sama.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Gambar/flow_offcon.png
+	height 1.9cm
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Penghubung Antar-Halaman (
+\emph on
+Off-page Connector
+\emph default
+):
+\end_layout
+
+\begin_layout Plain Layout
+Digunakan untuk menghubungkan bagian-bagian 
+\emph on
+flowchart
+\emph default
+ yang dilanjutkan ke halaman yang terpisah.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+METODE PENELITIAN
+\end_layout
+
+\begin_layout Section
+Spesifikasi Perangkat Keras
+\end_layout
+
+\begin_layout Standard
+Tabel 3.1 menunjukkan informasi lengkap seluruh perangkat keras yang dipergunakan dalam penelitian ini.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Spesifikasi Perangkat Keras yang Digunakan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Komponen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nama
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+CPU
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AMD Ryzen 5 7600X
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GPU
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RAM
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Chipset
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SSD
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Spesifikasi Perangkat Lunak
+\end_layout
+
+\begin_layout Standard
+Tabel 3.2 menunjukkan informasi lengkap mengenai seluruh perangkat lunak yang dipergunakan dalam penelitian ini.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement document
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Spesifikasi Perangkat Lunak yang Digunakan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0pt">
+<row endhead="true" endfirsthead="true">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Aplikasi
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Nama
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+OS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Windows 11 Pro 24H2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Virtual Environment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bahasa Pemrograman
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Editor Teks
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Terminal Emulator
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Framework
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Penelusur Web
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Version Control
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+HASIL DAN PEMBAHASAN
+\end_layout
+
+\begin_layout Section
+Hasil ...
+\end_layout
+
+\begin_layout Chapter
+PENUTUP
+\end_layout
+
+\begin_layout Section
+Kesimpulan
+\end_layout
+
+\begin_layout Standard
+Secara keseluruhan,
+ penelitian ini berhasil menghasilkan model klasifikasi 
+\emph on
+deepfake
+\emph default
+ yang efektif dan aplikasi web yang interaktif,
+ serta memenuhi kriteria keberhasilan yang telah dipaparkan pada bagian Pemahaman Bisnis.
+ Hasil ini penting untuk meningkatkan kinerja model dalam mengklasifikasi 
+\emph on
+deepfake
+\emph default
+ di masa mendatang dan memberikan alat yang berguna bagi masyarakat untuk mengidentifikasi 
+\emph on
+deepfake
+\emph default
+.
+ Meskipun demikian,
+ penelitian lebih lanjut diperlukan untuk terus meningkatkan kinerja model dan mengeksplorasi teknik dan pendekatan baru dalam pengklasifikasian 
+\emph on
+deepfake
+\emph default
+.
+\end_layout
+
+\begin_layout Section
+Saran
+\end_layout
+
+\begin_layout Standard
+Berdasarkan hasil penelitian dan pengujian yang telah dilakukan,
+ berikut adalah beberapa saran untuk penelitian dan pengembangan lebih lanjut dalam bidang klasifikasi dan deteksi 
+\emph on
+deepfake
+\emph default
+ pada gambar dan/atau video singkat:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+renewcommand
+\backslash
+bibname{DAFTAR PUSTAKA}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "biblio"
+options "bibtotoc,apalike"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+LAMPIRAN
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+appendixpagenumbering
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{appendixstyle}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{appendixstyle}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{LAMPIRAN}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Lampiran 1 
+\emph on
+Dataset
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{app}{appendices}{Lampiran 1 
+\backslash
+textit{Dataset}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Ukuran 
+\emph on
+Dataset
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Gambar/prop_train.png
+	lyxscale 30
+	width 4.55cm
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Gambar/prop_valid.png
+	lyxscale 30
+	width 4.55cm
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Gambar/prop_test.png
+	lyxscale 30
+	width 4.55cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Lampiran 2 Jupyter Notebook
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{app}{appendices}{Lampiran 2 Jupyter Notebook}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Arsitektur Model
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Gambar/model_1.png
+	lyxscale 30
+	width 14cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+pi24_train.ipynb
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "numbers=left,basicstyle={\tiny},breaklines=true,showstringspaces=false,tabsize=5"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import numpy as np 
+\end_layout
+
+\begin_layout Plain Layout
+
+import tensorflow as tf 
+\end_layout
+
+\begin_layout Plain Layout
+
+import os import keras 
+\end_layout
+
+\begin_layout Plain Layout
+
+from tensorflow.keras.preprocessing.image import ImageDataGenerator,
+ img_to_array,
+ load_img 
+\end_layout
+
+\begin_layout Plain Layout
+
+from tensorflow.keras.applications import EfficientNetV2B0 
+\end_layout
+
+\begin_layout Plain Layout
+
+from tensorflow.keras.layers import Dense 
+\end_layout
+
+\begin_layout Plain Layout
+
+from tensorflow.keras.models import Model 
+\end_layout
+
+\begin_layout Plain Layout
+
+from tensorflow.keras.optimizers import Adam 
+\end_layout
+
+\begin_layout Plain Layout
+
+import matplotlib.pyplot as plt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

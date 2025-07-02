@@ -1,0 +1,533 @@
+\documentclass[12pt,oneside,bahasa]{book}
+\usepackage{charter}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{varwidth}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=4cm,rmargin=3cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{setspace}
+\usepackage[authoryear]{natbib}
+\onehalfspacing
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% Variable width box for table cells
+\newenvironment{cellvarwidth}[1][t]
+    {\begin{varwidth}[#1]{\linewidth}}
+    {\@finalstrut\@arstrutbox\end{varwidth}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%% \renewcommand{\chapter}[1]{\chapter[#1]{\centering #1}}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries\centering}{\thechapter.}{14pt}{\Huge\MakeUppercase}
+%%-------------
+\newcommand{\Judul}{Aplikasi \textit {Review} Artikel Ilmiah dengan metode \textit {Retrieval-Augmented Generation} Dan \textit {Langchain} }
+\newcommand{\JudulInggris}{Scientific Article Review Application with Retrieval-Augmented Generation and Langchain method}
+\newcommand{\Penulis}{Rafli Satya Dewanto}
+\newcommand{\NPM}{51421208}
+\newcommand{\NIRM}{98432324243}
+\newcommand{\JenisTulisan}{Skripsi}
+\newcommand{\Gelar}{Jenjang S1 / Setara Sarjana Muda}
+\newcommand{\Fakultas}{Teknologi Industri}
+\newcommand{\Faculty}{Industrial Technology}
+\newcommand{\Jurusan}{Informatika}
+\newcommand{\Major}{Informatics}
+%%-------------
+\newcommand{\Prodi}{Direktorat Program Diploma Tiga Teknologi Informasi}
+\newcommand{\Tahun}{2025}
+\newcommand{\Bulan}{Juli}
+\newcommand{\Tanggal}{24}
+\newcommand{\Kota}{JAKARTA}
+%%-------------
+\newcommand{\KataKunci}{\textit{Artifical Intelligence, Retrieval-Augmented Generation, Chatbot, Next.js, Gemini}}
+\newcommand{\KeyWords}{Artifical Intelligence, Retrieval-Augmented Generation, Chatbot, Next.js, Gemini}
+%%-------------
+\newcommand{\KoordinatorPI}{Dr. Achmad Fahrurozi, S.Si., M.Si.}
+%%-------------
+\newcommand{\KetuaJurusan}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
+\newcommand{\DosenPembimbingA}{Drs. Agus Sumin, MMSI.}
+\newcommand{\DosenPembimbingB}{Dr. Ricky Agus T., S.T., S.Si., M.M.}
+\newcommand{\KetuaPembimbing}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
+\newcommand{\AnggotaPembimbingA}{Dr. Elfitrin Syahrul, ST., MT.}
+\newcommand{\AnggotaPembimbingB}{Dr. Marliza Ganefi Gumay, S.Kom., MMSI}
+%%------------
+\newcommand{\KetuaUjian}{Dr. Ravi Ahmad Salim}
+\newcommand{\SekUjian}{Prof. Dr. Wahyudi Priyono}
+\newcommand{\AnggotaUjianA}{Prof. Dr. Lintang Yuniar Banowosari, S.Kom., M.Sc.}
+\newcommand{\AnggotaUjianB}{Dr. Elfitrin Syahrul, ST., MT.}
+\newcommand{\AnggotaUjianC}{Dr. Marliza Ganefi Gumay, S.Kom., MMSI}
+%%-------------
+\newcommand{\Ringkasan}{Tulis ringkasan skripsi, pi, atau apa dengan bahasa yang jelas, lugas dan menggambarkan secara singkat tulisan ini.  Sebaiknya tidak lebih dari 150 kata dan sudah menjelaskan dari permasalahan, pembahasan dan penutup.}
+\newcommand{\JumlahPustaka}{50}
+\newcommand{\JumlahHalaman}{89}
+\newcommand{\JumlahHalamanDepan}{xiii}
+\newcommand{\TahunPustaka}{1959-2024}
+%%
+%% Keterangan administratif sidang sarjana
+%%
+\newcommand{\TanggalSidang}{24 Juli 2025}
+\newcommand{\TanggalLulus}{24 Juli 2025}
+\newcommand{\TanggalSah}{}
+\newcommand{\PejabatBagianSidang}{Dr. Edi Sukirman, S.Si., MM., M.I.Kom.}
+\setlength{\headheight}{15pt}
+%%-------------
+%%
+%%Untuk Kata pengantar
+%%
+\newcommand{\Rektor}{Prof. Dr. E.S. Margianti, SE., MM.}
+\newcommand{\Dekan}{Prof. Dr. Ing. Adang Suhendra, S.Si, S.Kom., M.Sc.}
+\newcommand{\KotaPenulis}{Depok}
+\newcommand{\BlnThn}{24 Juli 2025}
+%%-----------
+%%-----------
+% The following commands set the page numbers on the top right
+% except in the beginning of chapters
+%\lhead{}
+%\chead{}
+%\rhead{\thepage}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+%\renewcommand{\headrulewidth}{0pt}
+
+
+\usepackage{tocloft}
+% Mengatur judul Daftar Isi, Daftar Gambar, dan Daftar Tabel agar tetap rata tengah dengan ukuran default
+\renewcommand{\cfttoctitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftloftitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftlottitlefont}{\hfill\Huge\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftafterlottitle}{\hfill}
+% Membuat daftar khusus untuk lampiran
+\newlistof{appendices}{app}{Daftar Lampiran}
+% Kode untuk mengatur judul Daftar Lampiran
+\makeatletter
+\renewcommand{\listofappendices}{%
+  \chapter*{DAFTAR LAMPIRAN}%
+  \@starttoc{app}%
+}
+\makeatother
+
+
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+
+
+
+% Define custom page numbering style
+\usepackage{fancyhdr}
+\newcommand{\appendixpagenumbering}{
+    \renewcommand{\thepage}{L-\arabic{page}}
+}
+
+
+% Mengatur header dan footer
+\fancypagestyle{romanstyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} % Nomor halaman di tengah bawah
+    \renewcommand{\headrulewidth}{0pt} % Hapus garis header
+    \renewcommand{\footrulewidth}{0pt} % Hapus garis footer
+}
+
+\fancypagestyle{arabicstyle}{
+    \fancyhf{}
+    \fancyhead[R]{\thepage} % Nomor halaman di kanan atas
+    \renewcommand{\headrulewidth}{0pt} % Hapus garis header
+    \renewcommand{\footrulewidth}{0pt} % Hapus garis footer
+}
+
+\fancypagestyle{appendixstyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} % Nomor halaman di tengah bawah
+    \renewcommand{\headrulewidth}{0pt} % Hapus garis header
+    \renewcommand{\footrulewidth}{0pt} % Hapus garis footer
+}
+
+\makeatother
+
+\usepackage{babel}
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+\input{made-hypen.tex} 
+\sloppy 
+\thispagestyle{empty}
+
+\addcontentsline{toc}{chapter}{HALAMAN JUDUL}
+
+\pagenumbering{roman}
+\pagestyle{romanstyle}
+
+\vspace*{10mm}
+
+\begin{center}
+{\large\textbf{UNIVERSITAS GUNADARMA}}{\large\par}
+\par\end{center}
+
+\begin{center}
+{\large\textbf{FAKULTAS \MakeUppercase{\Fakultas}}}{\large\par}
+\par\end{center}
+
+\vspace*{10mm}
+
+\begin{center}
+\includegraphics[width=55mm]{images/gundarlogo.png}
+\par\end{center}
+
+\vspace*{3mm}
+
+\begin{center}
+{\Large\textbf{SKRIPSI}}{\Large\par}
+\par\end{center}
+
+\vspace*{7mm}
+
+\begin{center}
+\begin{tabular}{|>{\centering}m{13.5cm}|}
+\hline 
+\centering{}~~\tabularnewline
+\centering{}\textbf{\MakeUppercase{\Judul}}\tabularnewline
+~~\tabularnewline
+\centering{}%
+\begin{tabular}{lcl}
+Nama & : & \Penulis\tabularnewline
+NPM & : & \NPM\tabularnewline
+Fakultas & : & \Fakultas\tabularnewline
+Program Studi & : & \Jurusan\tabularnewline
+Dosen Pembimbing 1 & : & \DosenPembimbingA\tabularnewline
+Dosen Pembimbing 2 & : & \DosenPembimbingB\tabularnewline
+\end{tabular}\tabularnewline
+~~\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+ \vspace{7mm}
+
+\begin{center}
+\begin{tabular}{c}
+\begin{cellvarwidth}[t]
+\centering
+\textbf{Diajukan Guna Melengkapi Sebagian Syarat Dalam Mencapai }
+
+\textbf{Gelar Setara Sarjana Strata Satu (S1)}
+\end{cellvarwidth}\tabularnewline
+\textbf{\Kota}\tabularnewline
+\textbf{\Tahun}\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\chapter*{{\huge PERNYATAAN ORISINALITAS DAN PUBLIKASI}}
+
+\begin{singlespace}
+\addcontentsline{toc}{chapter}{PERNYATAAN ORISINALITAS DAN PUBLIKASI}
+\thispagestyle{romanstyle}
+
+Saya yang bertanda tangan di bawah ini,
+
+\vspace*{10mm}
+
+\hspace{-6pt}%
+\begin{tabular}{>{\raggedright}p{30mm}c>{\raggedright}p{0.66\textwidth}}
+Nama & : & \Penulis\tabularnewline
+NPM & : & \NPM\tabularnewline
+Judul PI & : & \MakeUppercase{\Judul}\tabularnewline
+Tanggal Sidang & : & \TanggalSidang\tabularnewline
+Tanggal Lulus & : & \TanggalLulus\tabularnewline
+\end{tabular}
+
+\vspace*{10mm}
+
+\noindent menyatakan bahwa tulisan ini adalah merupakan hasil karya
+saya sendiri dan dapat dipublikasikan sepenuhnya oleh Universitas
+Gunadarma. Segala kutipan dalam bentuk apa pun telah mengikuti kaidah
+dan etika yang berlaku. Semua hak cipta dari logo serta produk yang
+disebut dalam buku ini adalah milik masing-masing pemegang haknya,
+kecuali disebutkan lain. Mengenai isi dan tulisan merupakan tanggung
+jawab Penulis, bukan Universitas Gunadarma.
+
+Demikianlah pernyataan ini dibuat dengan sebenarnya dan dengan penuh
+kesadaran.
+
+\vspace*{15mm}
+\end{singlespace}
+
+\begin{flushright}
+\begin{tabular}{c}
+\KotaPenulis, \  \Tanggal\ \Bulan\ \Tahun\tabularnewline
+\vspace*{25mm}\tabularnewline
+\Penulis\tabularnewline
+\end{tabular}
+\par\end{flushright}
+
+\chapter*{{\huge LEMBAR PENGESAHAN}}
+
+\addcontentsline{toc}{chapter}{LEMBAR PENGESAHAN}
+
+\begin{center}
+\begin{tabular}{|c|ll|c|}
+\multicolumn{4}{c}{\textbf{KOMISI PEMBIMBING}}\tabularnewline
+\hline 
+\textbf{NO} & \multicolumn{2}{c|}{\textbf{NAMA}} & \textbf{KEDUDUKAN}\tabularnewline
+\hline 
+1. & \KetuaPembimbing &  & Ketua\tabularnewline
+\hline 
+2. & \AnggotaPembimbingA &  & Anggota\tabularnewline
+\hline 
+3. & \AnggotaPembimbingB &  & Anggota\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\begin{center}
+\begin{tabular}{|c|ll|c|}
+\multicolumn{4}{c}{\textbf{PANITIA UJIAN}}\tabularnewline
+\hline 
+\textbf{NO} & \multicolumn{2}{c|}{\textbf{NAMA}} & \textbf{KEDUDUKAN}\tabularnewline
+\hline 
+1. & \KetuaUjian &  & Ketua\tabularnewline
+\hline 
+2. & \SekUjian &  & Sekretaris\tabularnewline
+\hline 
+3. & \AnggotaUjianA &  & Anggota\tabularnewline
+\hline 
+4. & \AnggotaUjianB &  & Anggota\tabularnewline
+\hline 
+5. & \AnggotaUjianC &  & Anggota\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\begin{center}
+\vspace*{5mm}
+\par\end{center}
+
+\begin{center}
+\begin{tabular}{ccc}
+\multicolumn{3}{c}{\textbf{Mengetahui,}}\tabularnewline
+\multicolumn{3}{c}{\textbf{\vspace*{5mm}}}\tabularnewline
+\textbf{Dosen Pembimbing} &  & \textbf{Bagian Sidang Ujian}\tabularnewline
+\textbf{\vspace*{10mm}} &  & \textbf{\vspace*{10mm}}\tabularnewline
+\textbf{(\DosenPembimbingB)} &  & \textbf{(\KoordinatorPI)}\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\chapter*{ABSTRAK}
+
+\begin{singlespace}
+\addcontentsline{toc}{chapter}{ABSTRAK}
+
+\noindent\Penulis. \NPM
+
+\noindent\MakeUppercase{\Judul} \\
+Skripsi, Fakultas \Fakultas, Program Studi \Jurusan, Universitas
+Gunadarma, \Tahun
+
+\noindent Kata Kunci : \KataKunci
+
+\medskip{}
+
+\noindent (\JumlahHalamanDepan \ + \JumlahHalaman \ + lampiran)
+
+\bigskip{}
+
+\emph{Deepfake}, teknologi yang memanfaatkan \emph{machine learning}
+untuk memanipulasi video dan gambar, telah menjadi tantangan besar
+dalam beberapa tahun terakhir.
+
+\bigskip{}
+
+\noindent Daftar Pustaka (\TahunPustaka)
+\end{singlespace}
+
+\chapter*{ABSTRACT}
+
+\begin{singlespace}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+
+\noindent\Penulis. \NPM
+
+\noindent\MakeUppercase{\JudulInggris} \\
+Thesis, Faculty of \Faculty, \Major\ Study Program, Gunadarma University,
+\Tahun
+
+\noindent Keywords : \KeyWords
+
+\medskip{}
+
+\noindent (\JumlahHalamanDepan \ + \JumlahHalaman \ + attachment)
+
+\bigskip{}
+
+Deepfake, a technology that uses machine learning to manipulate videos
+and images, has become a major challenge in recent years.
+
+\bigskip{}
+
+\noindent Bibliography (\TahunPustaka)
+\end{singlespace}
+
+\chapter*{KATA PENGANTAR}
+
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{KATA PENGANTAR}
+
+Puji syukur ke hadirat Tuhan Yang Maha Esa atas segala rahmat dan
+karunia-Nya, serta doa dan dorongan dari berbagai pihak, sehingga
+skripsi yang berjudul ``\Judul'' dapat diselesaikan dengan baik.
+
+Penyusunan skripsi ini merupakan salah satu syarat untuk mencapai
+jenjang Setara Sarjana Strata Satu (S1) pada Program Studi Informatika,
+Fakultas Teknologi Industri, Universitas Gunadarma.
+
+Walaupun dalam penyusunannya menemui berbagai kendala, berkat bantuan
+dan dorongan dari berbagai pihak, skripsi ini dapat diselesaikan dengan
+baik. Penulis ingin mengucapkan terima kasih kepada: 
+\begin{enumerate}
+\item \Rektor, selaku Rektor Universitas Gunadarma.
+\item \Dekan, selaku Dekan Fakultas Teknologi Industri, Universitas Gunadarma.
+\item \KetuaJurusan , selaku Ketua Program Studi \Jurusan.
+\item \KoordinatorPI, selaku Kepala Subbagian Sidang PI Fakultas Teknologi
+Industri.
+\item \DosenPembimbingA\ dan \DosenPembimbingB, sebagai Dosen Pembimbing
+yang di tengah-tengah aktivitas dan kesibukannya telah membimbing
+dan memberikan dorongan serta dukungan, sehingga penulisan ini dapat
+diselesaikan.
+\item Seluruh rekan 4IA01 di Universitas Gunadarma yang telah banyak
+membantu serta memberi semangat selama proses penulisan. 
+\item Semua pihak yang tidak bisa disebutkan yang telah membantu penyelesaian
+skripsi ini, diucapkan juga terima kasih atas segala bantuan dan sarannya. 
+\end{enumerate}
+\indent
+
+Sebagai manusia biasa yang tidak luput dari kesalahan, penulis menyadari
+bahwa skripsi ini masih jauh dari sempurna dan memiliki banyak kekurangan.
+Oleh karena itu, penulis dengan terbuka menerima kritik dan saran
+yang bersifat membangun demi perbaikan di masa yang akan datang. Semoga
+skripsi ini dapat memberikan manfaat bagi para pembaca dan menjadi
+kontribusi kecil bagi kemajuan ilmu pengetahuan.
+
+\begin{singlespace}
+\vspace*{15mm}
+
+
+\end{singlespace}\begin{flushright}
+\begin{tabular}{c}
+\KotaPenulis, \BlnThn\vspace{10pt}\tabularnewline
+Penulis\tabularnewline
+\vspace*{25mm}\tabularnewline
+\Penulis\tabularnewline
+\end{tabular}
+\par\end{flushright}
+
+\clearpage
+\phantomsection 
+\vspace*{7mm}
+
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{DAFTAR ISI}
+\renewcommand\contentsname{DAFTAR ISI}
+
+\tableofcontents{}
+
+\clearpage
+\phantomsection 
+\vspace*{7mm}
+
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\renewcommand\listtablename{DAFTAR TABEL}
+
+\listoftables
+
+\clearpage
+\phantomsection 
+\vspace*{7mm}
+
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+\renewcommand\listfigurename{DAFTAR GAMBAR}
+
+\listoffigures
+
+\clearpage
+\phantomsection 
+
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
+\listofappendices
+\input{bab-1.tex}
+\input{bab-2.tex}
+\input{bab-3.tex}
+\input{bab-4.tex}
+\input{bab-5.tex}
+\clearpage 
+\phantomsection 
+\renewcommand\bibname{DAFTAR PUSTAKA}\bibliographystyle{apalike}
+\addcontentsline{toc}{chapter}{\bibname}\bibliography{biblio}
+
+
+\chapter*{LAMPIRAN}
+
+\setcounter{page}{1}
+\appendixpagenumbering
+\thispagestyle{appendixstyle}
+\pagestyle{appendixstyle}
+\addcontentsline{toc}{chapter}{LAMPIRAN}
+
+\section*{Lampiran 1 \emph{Dataset}}
+
+\addcontentsline{app}{appendices}{Lampiran 1 \textit{Dataset}}
+
+\subsection*{Ukuran \emph{Dataset}}
+\begin{center}
+\includegraphics[width=4.55cm]{images/prop_train} \includegraphics[width=4.55cm]{images/prop_valid}
+\includegraphics[width=4.55cm]{images/prop_test}
+\par\end{center}
+
+\clearpage
+\phantomsection
+
+\section*{Lampiran 2 Jupyter Notebook}
+
+\addcontentsline{app}{appendices}{Lampiran 2 Jupyter Notebook}
+
+\subsection*{Arsitektur Model}
+\begin{center}
+\includegraphics[width=14cm]{images/model_1}
+\par\end{center}
+
+\subsection*{pi24\_train.ipynb}
+
+\begin{lstlisting}[numbers=left,basicstyle={\tiny},breaklines=true,showstringspaces=false,tabsize=5]
+import numpy as np 
+import tensorflow as tf 
+import os import keras 
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img 
+from tensorflow.keras.applications import EfficientNetV2B0 
+from tensorflow.keras.layers import Dense 
+from tensorflow.keras.models import Model 
+from tensorflow.keras.optimizers import Adam 
+import matplotlib.pyplot as plt
+\end{lstlisting}
+
+\clearpage
+\phantomsection
+\end{document}
