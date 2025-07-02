@@ -30,16 +30,31 @@ Dalam penulisan ini terdapat beberapa rumusan masalah yang penulis akan bahas, d
 
 \section{Ruang Lingkup}
 
-Batasan-batasan tersebut adalah sebagai berikut.
+Untuk menjaga fokus dan kejelasan dalam proses penelitian serta pengembangan aplikasi, maka ruang lingkup penelitian ini dibatasi pada aspek-aspek berikut:
+
 \begin{enumerate}
-  \item Citra
+  \item Aplikasi ini hanya digunakan untuk membantu mahasiswa memahami isi jurnal ilmiah yang telah diunggah dalam format PDF, dan tidak menyediakan fitur pencarian atau pengunduhan jurnal dari sumber eksternal seperti Google Scholar, Scopus, atau database jurnal lainnya.
+
+  \item Fitur chatbot yang dikembangkan terbatas pada proses tanya-jawab berbasis dokumen yang telah diunggah oleh pengguna. Sistem tidak dirancang untuk menjawab pertanyaan di luar konteks jurnal yang diberikan.
+
+  \item Fitur pembuatan kutipan (sitasi) otomatis hanya bekerja berdasarkan metadata jurnal yang berhasil diekstrak dari dokumen PDF.\@ Ketepatan gaya kutipan mengikuti format yang telah ditentukan sistem, yaitu APA, MLA, IEEE, dan Harvard.
+
+  \item Fitur anotasi hanya berlaku pada dokumen PDF yang diunggah, dan hanya mencakup penandaan (highlight) dan penambahan catatan teks sebagai bentuk pencatatan pribadi pengguna. Fitur ini tidak mencakup kolaborasi atau anotasi multi-user.
+
+  \item Penelitian ini berfokus pada pengembangan dan pengujian aplikasi secara fungsional (fungsi berjalan sesuai kebutuhan pengguna) dan usability (kemudahan penggunaan). Evaluasi tidak mencakup aspek performa teknis tingkat lanjut seperti pengukuran beban server atau stress testing.
+
+  \item Model bahasa besar (LLM) yang digunakan adalah model yang tersedia secara komersial atau open-source melalui integrasi dengan framework Langchain. Penelitian ini tidak mencakup pelatihan model AI dari awal.
 \end{enumerate}
 
 \section{Tujuan Penelitian}
 
-Tujuan penelitian yang akan dibahas adalah sebagai berikut.
+Penelitian ini bertujuan untuk merancang dan mengembangkan sebuah aplikasi chatbot berbasis jurnal ilmiah yang dapat membantu mahasiswa dalam proses riset akademik. Aplikasi ini tidak berfungsi sebagai pencari jurnal, melainkan sebagai asisten cerdas yang mendukung mahasiswa dalam memahami, mengelola, dan mencatat isi jurnal ilmiah yang telah mereka unggah. Adapun tujuan khusus dari penelitian ini adalah sebagai berikut:
 \begin{enumerate}
-  \item lorem ipsum
+  \item Mengembangkan chatbot interaktif yang dapat menjawab pertanyaan mahasiswa berdasarkan isi jurnal ilmiah yang mereka unggah, guna mempermudah proses pemahaman terhadap konten jurnal tersebut.
+  \item Menerapkan metode Retrieval-Augmented Generation (RAG) dan framework Langchain untuk memungkinkan sistem memberikan jawaban yang kontekstual dan relevan terhadap isi dokumen yang telah diunggah.
+  \item Membangun fitur pembuat sitasi otomatis dari jurnal yang diunggah oleh mahasiswa dengan dukungan berbagai gaya referensi (seperti APA, MLA, IEEE, dan Harvard), untuk mempermudah proses penulisan kutipan dalam karya ilmiah.
+  \item Mengembangkan fitur anotasi pada file PDF jurnal, agar mahasiswa dapat memberikan catatan pribadi secara langsung di dalam dokumen, sebagai bagian dari proses pencatatan dan pemahaman literatur.
+  \item Menyediakan antarmuka aplikasi yang mudah digunakan, sehingga dapat mendukung mahasiswa dalam kegiatan literatur review, penyusunan referensi, dan pengelolaan catatan riset secara terintegrasi.
 \end{enumerate}
 
 \section{Sistematika Penulisan}
