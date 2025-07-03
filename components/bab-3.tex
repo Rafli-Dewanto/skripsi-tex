@@ -1,39 +1,24 @@
 \chapter{METODE PENELITIAN}
 
+\section{Gambaran Umum Metodologi}
+
+Penelitian ini menggunakan pendekatan \textit{System Development Life Cycle} (SDLC) dengan model \textit{iteratif}. Model ini dipilih karena sesuai untuk proyek pengembangan perangkat lunak yang membutuhkan fleksibilitas dan peningkatan bertahap seiring dengan evaluasi dan umpan balik pengguna. Proses iteratif memungkinkan pengembangan dilakukan dalam beberapa siklus (iterasi), di mana setiap iterasi terdiri dari tahapan analisis, desain, implementasi, dan pengujian. Hasil dari setiap iterasi akan digunakan untuk perbaikan dan penambahan fitur di iterasi selanjutnya.
+\singlespacing{}
+Gambaran umum tahapan dalam SDLC model iteratif yang diterapkan pada penelitian ini adalah sebagai berikut:
+
+\begin{enumerate}
+  \item \textbf{Analisis Kebutuhan:} Mengidentifikasi kebutuhan pengguna dan sistem berdasarkan studi awal serta permasalahan utama yang ingin diselesaikan.
+  \item \textbf{Perancangan Sistem:} Mendesain arsitektur sistem, alur data, dan antarmuka pengguna berdasarkan kebutuhan yang telah diidentifikasi.
+  \item \textbf{Implementasi:} Mengembangkan fitur-fitur sistem sesuai dengan desain menggunakan teknologi yang telah ditentukan.
+  \item \textbf{Pengujian:} Melakukan uji fungsionalitas dan usability pada fitur yang telah dikembangkan untuk memastikan sistem berjalan sesuai harapan.
+  \item \textbf{Iterasi:} Berdasarkan hasil pengujian dan umpan balik, dilakukan evaluasi dan perbaikan sistem, kemudian iterasi kembali ke tahap analisis.
+\end{enumerate}
+
+\noindent
+Proses ini berulang hingga sistem mencapai bentuk akhir yang stabil dan memenuhi seluruh kebutuhan pengguna.
 \input{components/bab-3/specs.tex}
-\section{Analisis Kebutuhan}
-Tahap awal ini dilakukan untuk mengidentifikasi kebutuhan pengguna dan sistem. Fokus utama adalah permasalahan yang dihadapi mahasiswa dalam memahami jurnal ilmiah, serta fitur yang diperlukan seperti tanya jawab berbasis dokumen, sitasi otomatis, dan anotasi PDF. Dari tahap ini diturunkan kebutuhan fungsional dan non-fungsional sebagai dasar pengembangan sistem.
-
-\section{Tools dan Peralatan Penelitian}
-Penelitian ini menggunakan kombinasi perangkat lunak dan layanan AI untuk membangun sistem. Beberapa alat dan teknologi utama meliputi:
-\begin{itemize}
-  \item \textbf{Bahasa pemrograman:} JavaScript (Node.js), TypeScript (Next.js).
-  \item \textbf{Framework AI:} Langchain untuk integrasi LLM dan retrieval.
-  \item \textbf{Model AI:} OpenAI GPT-4 melalui API resmi.
-  \item \textbf{Basis data:} Supabase PostgreSQL untuk data struktural, dan Chroma sebagai vektor store.
-  \item \textbf{\emph{Tools} pendukung}:
-        \begin{itemize}
-          \item \emph{Postman} untuk API \emph{testing}.
-          \item \emph{Visual Studio Code} untuk \emph{development}.
-          \item \emph{GitHub} untuk kontrol versi.
-        \end{itemize}
-\end{itemize}
-
 \input{components/bab-3/system-design.tex}
 \input{components/bab-3/system-impl.tex}
 \input{components/bab-3/features.tex}
-\section{Teknik Pengumpulan dan Analisis Data}
-Data yang dikumpulkan mencakup interaksi pengguna dengan sistem, log respons chatbot, dan hasil uji coba fungsionalitas. Teknik pengumpulan data dilakukan melalui:
-\begin{itemize}
-  \item \textbf{Observasi langsung} saat pengguna menguji aplikasi.
-  \item \textbf{Log sistem} untuk merekam performa model dan hasil pencarian RAG.
-  \item \textbf{Kuesioner} untuk mengevaluasi aspek usability dari sisi pengguna.
-\end{itemize}
-
-\section{Pengujian dan Evaluasi}
-Setiap iterasi diuji dengan pendekatan:
-\begin{itemize}
-  \item \textbf{Pengujian fungsional} untuk memastikan seluruh fitur seperti upload, tanya jawab, sitasi, dan anotasi bekerja sebagaimana mestinya.
-  \item \textbf{Evaluasi usability} melalui uji coba langsung oleh pengguna sasaran (mahasiswa) untuk mendapatkan umpan balik terkait kemudahan dan efektivitas penggunaan sistem.
-\end{itemize}
+\input{components/bab-3/testing.tex}
 \input{components/bab-3/deployment.tex}

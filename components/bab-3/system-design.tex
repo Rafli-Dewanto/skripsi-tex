@@ -93,15 +93,42 @@ Activity Diagram adalah representasi grafis dari alur kerja atau kegiatan di dal
 
 Activity diagram di atas menggambarkan alur proses interaksi pengguna dengan aplikasi. Proses dimulai ketika pengguna membuka web app. Sistem kemudian memeriksa apakah pengguna sudah memiliki akun. Jika belum, sistem akan menampilkan halaman sign up; jika sudah, sistem menampilkan halaman login. Pengguna kemudian mengisi kredensial yang dikirimkan ke sistem untuk proses otentikasi melalui database. Jika otentikasi berhasil, sistem akan menampilkan halaman utama. Jika gagal, sistem akan menampilkan pesan kesalahan.
 \singlespacing{}
-Setelah berhasil masuk, pengguna dapat memilih apakah ingin mengunggah file PDF atau tidak. Jika tidak, pengguna hanya perlu mengirimkan chat. Namun, jika ingin mengunggah PDF, pengguna akan mengirimkan chat bersamaan dengan file tersebut. File PDF akan diunggah ke object storage, kemudian payload yang berisi chat dan file akan diproses menggunakan integrasi OpenAI. Setelah diproses, hasil response dikirimkan kembali ke sistem dan sistem mengirimkannya ke pengguna dalam bentuk stream teks. Di sisi lain, chat juga disimpan ke dalam database sebagai arsip interaksi.
+Setelah berhasil masuk, pengguna dapat memilih apakah ingin mengunggah file PDF atau tidak. Jika tidak, pengguna hanya perlu mengirimkan chat. Namun, jika ingin mengunggah PDF, pengguna akan mengirimkan chat bersamaan dengan file tersebut. File PDF akan diunggah ke object storage, kemudian payload yang berisi chat dan file akan diproses menggunakan integrasi OpenAI.\@ Setelah diproses, hasil response dikirimkan kembali ke sistem dan sistem mengirimkannya ke pengguna dalam bentuk stream teks. Di sisi lain, chat juga disimpan ke dalam database sebagai arsip interaksi.
 
 \subsection{Sequence Diagram}
+
+Gambar~\ref{fig:sequence-login-chat} menunjukkan sequence diagram yang menggambarkan alur interaksi antara pengguna, sistem, dan basis data saat menggunakan aplikasi chatbot jurnal. Diagram ini menjelaskan urutan proses dari mulai membuka aplikasi hingga pengguna menerima respons dari sistem berdasarkan dokumen yang telah diunggah.
+
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.9\textwidth]{images/bab-3/sequence.png}
-  \caption{Sequence Diagram Proses Tanya Jawab Dokumen}
-  \label{fig:sequence}
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/bab-3/sequence.png}
+    \caption{Sequence Diagram Interaksi User dan Sistem}
+    \label{fig:sequence-login-chat}
 \end{figure}
+
+Berdasarkan Gambar~\ref{fig:sequence-login-chat}, berikut adalah tahapan proses yang terjadi:
+
+\begin{enumerate}
+  \item \textbf{Pengguna membuka aplikasi web}: Proses dimulai ketika pengguna mengakses aplikasi melalui browser.
+  
+  \item \textbf{Cek akun dan otentikasi}: Sistem memeriksa apakah pengguna sudah memiliki akun. Jika ya, pengguna mengisi kredensial (email dan password) lalu sistem mengirimkan kredensial tersebut ke backend untuk proses otentikasi.
+  
+  \item \textbf{Respons otentikasi}: Jika kredensial valid, sistem akan menampilkan halaman utama. Jika tidak, sistem menampilkan pesan error dan meminta pengguna untuk mencoba kembali.
+  
+  \item \textbf{Registrasi pengguna baru}: Jika pengguna belum memiliki akun, sistem mengarahkan ke halaman sign-up.
+  
+  \item \textbf{Pengiriman pesan dan dokumen}: Setelah berhasil masuk, pengguna dapat melakukan percakapan dengan chatbot. Jika dibutuhkan, pengguna juga dapat mengunggah file PDF berisi jurnal ilmiah.
+  
+  \item \textbf{Upload PDF ke Object Storage}: Jika terdapat PDF yang dikirimkan, sistem akan mengunggah file tersebut ke layanan object storage (misalnya Vercel Blob atau storage berbasis cloud lainnya).
+  
+  \item \textbf{Pemrosesan payload}: Sistem kemudian menggabungkan pertanyaan dan dokumen yang telah diunggah sebagai konteks untuk dikirim ke model LLM (OpenAI GPT-4) melalui integrasi Langchain.
+  
+  \item \textbf{Penyimpanan riwayat chat}: Setelah mendapatkan hasil respons dari model AI, sistem menyimpan riwayat percakapan (chat) ke basis data untuk kepentingan histori pengguna.
+  
+  \item \textbf{Streaming respons ke pengguna}: Respons dari model dikirimkan secara bertahap dalam bentuk streaming teks ke pengguna, untuk pengalaman percakapan yang lebih cepat dan real-time.
+\end{enumerate}
+
+Diagram ini memvisualisasikan bagaimana sistem menangani proses otentikasi, pengelolaan dokumen, dan integrasi dengan layanan AI secara terstruktur dan efisien. Alur ini juga menunjukkan bahwa sistem bersifat stateless pada sisi server, karena menggunakan pendekatan API tanpa backend server monolitik.
 
 \subsection{Entity Relationship Diagram (ERD)}
 

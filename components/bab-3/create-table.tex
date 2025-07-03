@@ -1,0 +1,81 @@
+\begin{verbatim}
+  CREATE TABLE
+  public."Chat" (
+    id uuid NOT NULL DEFAULT gen_random_uuid (),
+    "createdAt" timestamp without time zone NOT NULL,
+    "userId" uuid NOT NULL,
+    title text NOT NULL,
+    visibility character varying NOT NULL DEFAULT 'private'::character varying
+  );
+
+ALTER TABLE
+  public."Chat"
+ADD
+  CONSTRAINT "Chat_pkey" PRIMARY KEY (id)
+\end{verbatim}
+
+\begin{verbatim}
+  CREATE TABLE
+  public."Document" (
+    id uuid NOT NULL DEFAULT gen_random_uuid (),
+    "createdAt" timestamp without time zone NOT NULL,
+    title text NOT NULL,
+    content text NULL,
+    "userId" uuid NOT NULL,
+    text character varying NOT NULL DEFAULT 'text'::character varying
+  );
+
+ALTER TABLE
+  public."Document"
+ADD
+  CONSTRAINT "Document_id_createdAt_pk" PRIMARY KEY (createdAt, id)
+\end{verbatim}
+
+\begin{verbatim}
+  CREATE TABLE
+  public."messages" (
+    id uuid NOT NULL DEFAULT gen_random_uuid (),
+    "chatId" uuid NOT NULL,
+    role character varying NOT NULL,
+    parts json NOT NULL,
+    attachments json NOT NULL,
+    "createdAt" timestamp without time zone NOT NULL
+  );
+
+ALTER TABLE
+  public."messages"
+ADD
+  CONSTRAINT "Message_v2_pkey" PRIMARY KEY (id)
+\end{verbatim}
+
+\begin{verbatim}
+  CREATE TABLE
+  public."User" (
+    id uuid NOT NULL DEFAULT gen_random_uuid (),
+    email character varying(64) NOT NULL,
+    password character varying(64) NULL
+  );
+
+ALTER TABLE
+  public."User"
+ADD
+  CONSTRAINT "User_pkey" PRIMARY KEY (id)
+\end{verbatim}
+
+
+\begin{verbatim}
+  CREATE TABLE
+  public.citations (
+    id uuid NOT NULL DEFAULT gen_random_uuid (),
+    "userId" uuid NOT NULL,
+    doi character varying(100) NOT NULL,
+    style character varying(50) NOT NULL,
+    content text NOT NULL,
+    created_at timestamp without time zone NOT NULL DEFAULT now()
+  );
+
+ALTER TABLE
+  public.citations
+ADD
+  CONSTRAINT citations_pkey PRIMARY KEY (id)
+\end{verbatim}
