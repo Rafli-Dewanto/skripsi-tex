@@ -10,6 +10,7 @@
 
 
 ## VSCODE Settings
+[LaTex Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) is required for editing in vscode.
 Put this setting in your settings.json vscode file
 ```json
 "latex-workshop.kpsewhich.enabled": true,
