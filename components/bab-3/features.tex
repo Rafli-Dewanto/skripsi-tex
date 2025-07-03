@@ -1,0 +1,41 @@
+\section{Implementasi Fitur Utama}
+\subsection{Upload dan Pratinjau PDF}
+Pengguna dapat mengunggah file PDF yang akan disimpan pada \texttt{Vercel Blob}. File ini kemudian dimuat dan dipratinjau menggunakan \texttt{PDF.js}.
+\input{components/bab-3/chat_code.tex}
+
+\subsection{Tanya Jawab Berbasis RAG}
+Sistem menggunakan pipeline \texttt{Langchain} untuk menjalankan \textit{Retrieval-Augmented Generation}:
+\begin{enumerate}
+  \item Ekstraksi teks dari PDF
+  \item Pemecahan menjadi chunk dengan overlap
+  \item Embedding menggunakan model dari \texttt{OpenAI API}
+  \item Penyimpanan dalam vektor menggunakan \texttt{ChromaDB}
+  \item Retrieval saat tanya jawab berdasarkan \texttt{cosine similarity}
+  \item Prompt otomatis digabung dengan hasil retrieval dan dikirim ke model GPT
+\end{enumerate}
+
+\subsection{Retrieval-Augmented Generation}
+Agar LLM dapat bekerja dengan dokumen pribadi seperti PDF, konten dokumen harus diproses dan disimpan dengan cara yang dapat diakses secara efisien oleh LLM.\@ Seluruh proses ini dikenal sebagai \emph{ingestion} \citep[p~.84]{oshin2024learning}. Ide intinya adalah mengubah teks menjadi representasi numerik yang disebut \emph{embeddings} dan menyimpannya dalam penyimpanan \emph{vektor store} (sejenis basis data vektor). Hal ini memungkinkan aplikasi untuk menemukan dan mengambil bagian yang paling relevan dari dokumen untuk menjawab pertanyaan spesifik pengguna. Proses ini melibatkan empat langkah utama:
+\begin{enumerate}
+  \item \emph{Loading}: Mengekstrak teks dari dokumen PDF.
+  \item \emph{Splitting}: Memecah teks yang diekstrak menjadi bagian yang lebih kecil dan mudah dikelola.
+  \item \emph{Embedding}: Mengubah setiap potongan teks menjadi vektor numerik yang menangkap makna semantiknya.
+  \item \emph{Storing}: Menyimpan \emph{embeddings} ini dalam penyimpanan vektor untuk pencarian yang efisien.
+\end{enumerate}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.85\linewidth]{images/bab-3/embeddings.png}
+  \caption{Contoh \emph{RAG framework} yang menggunakan \emph{Vector Database}.}\label{fig:RAG-Framework}\citep{Jing}
+\end{figure}
+
+\subsection{Pembuatan Sitasi Otomatis}
+Sistem melakukan ekstraksi metadata seperti judul, penulis, tahun, dan DOI dari PDF dan menyusunnya ke dalam format referensi (APA, MLA, IEEE, Harvard) secara otomatis.
+
+\subsection{Anotasi PDF}
+Menggunakan integrasi \texttt{PDF.js}, pengguna dapat melakukan:
+\begin{itemize}
+  \item Highlight teks
+  \item Menambahkan catatan
+  \item Menyimpan anotasi ke database untuk ditampilkan ulang
+\end{itemize}

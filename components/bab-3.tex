@@ -1,113 +1,39 @@
 \chapter{METODE PENELITIAN}
 
-\section{Spesifikasi Perangkat Keras}
+\input{components/bab-3/specs.tex}
+\section{Analisis Kebutuhan}
+Tahap awal ini dilakukan untuk mengidentifikasi kebutuhan pengguna dan sistem. Fokus utama adalah permasalahan yang dihadapi mahasiswa dalam memahami jurnal ilmiah, serta fitur yang diperlukan seperti tanya jawab berbasis dokumen, sitasi otomatis, dan anotasi PDF. Dari tahap ini diturunkan kebutuhan fungsional dan non-fungsional sebagai dasar pengembangan sistem.
 
-Tabel 3.1 menunjukkan informasi lengkap seluruh perangkat keras yang
-dipergunakan dalam penelitian ini.
-
-\begin{table}[H]
-  \caption{Spesifikasi Perangkat Keras yang Digunakan}
-
-  \centering{}%
-  \begin{tabular}{|l|l|}
-    \hline
-    \textbf{Komponen} & \textbf{Nama}\tabularnewline
-    \hline
-    \hline
-    CPU               & AMD Ryzen 5 7600X\tabularnewline
-    \hline
-    GPU               & \tabularnewline
-    \hline
-    RAM               & \tabularnewline
-    \hline
-    \emph{Chipset}    & \tabularnewline
-    \hline
-    SSD               & \tabularnewline
-    \hline
-  \end{tabular}
-\end{table}
-
-
-\section{Spesifikasi Perangkat Lunak}
-
-Tabel 3.2 menunjukkan informasi lengkap mengenai seluruh perangkat
-lunak yang dipergunakan dalam penelitian ini.
-
-\begin{table}[H]
-  \caption{Spesifikasi Perangkat Lunak yang Digunakan}
-
-  \centering{}%
-  \begin{tabular}{|l|l|}
-    \hline
-    \textbf{Aplikasi}          & \textbf{Nama}\tabularnewline
-    \hline
-    \hline
-    OS                         & Windows 11 Pro 24H2\tabularnewline
-    \hline
-    \emph{Virtual Environment} & \tabularnewline
-    \hline
-    Bahasa Pemrograman         & \tabularnewline
-    \hline
-    Editor Teks                & \tabularnewline
-    \hline
-    \emph{Terminal Emulator}   & \tabularnewline
-    \hline
-    \emph{Framework}           & \tabularnewline
-    \hline
-    Penelusur Web              & \tabularnewline
-    \hline
-    \emph{Version Control}     & \tabularnewline
-    \hline
-  \end{tabular}
-\end{table}
-
-\section{Metode Penelitian}
-
-Metode penelitian ini dirancang untuk menghasilkan aplikasi chatbot berbasis dokumen jurnal ilmiah yang mampu memberikan jawaban relevan dan kontekstual kepada pengguna, serta menyediakan fitur pendukung seperti sitasi otomatis dan anotasi PDF.\@ Penelitian ini menggunakan pendekatan pengembangan perangkat lunak dengan model \textit{System Development Life Cycle (SDLC)} iteratif, karena pendekatan ini menggabungkan kejelasan alur dari model waterfall dengan fleksibilitas evaluatif dari model prototipe. Dalam setiap iterasi, dilakukan proses analisis kebutuhan, perancangan, implementasi, pengujian, dan evaluasi yang berulang hingga sistem mencapai bentuk final yang stabil dan sesuai kebutuhan pengguna.
-
-\subsubsection*{Prosedur Penelitian}
-
-Langkah-langkah utama dalam penelitian ini dijelaskan sebagai berikut:
-
-\begin{enumerate}
-  \item \textbf{Identifikasi Masalah dan Analisis Kebutuhan} \\
-        Dilakukan studi literatur dan observasi terhadap hambatan yang dihadapi mahasiswa dalam memahami isi jurnal, membuat sitasi, serta mencatat hasil bacaan. Hasilnya dijadikan dasar dalam merumuskan kebutuhan fungsional dan non-fungsional aplikasi.
-
-  \item \textbf{Perancangan Sistem dan Arsitektur RAG} \\
-        Perancangan arsitektur chatbot berbasis \textit{Retrieval-Augmented Generation (RAG)} dilakukan dengan merancang pipeline alur data: unggah jurnal -> ekstraksi konten -> pembuatan vektor -> penyimpanan ke vector store -> pencarian konteks berdasarkan pertanyaan pengguna -> pemanggilan LLM untuk merespons. Peran Langchain dalam tahapan ini adalah sebagai framework untuk mengatur \textit{chainz} interaksi antara dokumen, prompt, dan model AI.
-
-  \item \textbf{Implementasi Aplikasi} \\
-        Proses pengembangan frontend dan backend dilakukan secara bertahap. Backend menangani proses parsing PDF, embedding konten ke dalam vektor, penyimpanan, dan retrieval. Frontend mencakup antarmuka chatbot, halaman unggah file, hasil chat, sitasi, dan fitur anotasi PDF.
-
-  \item \textbf{Integrasi Model AI dengan Langchain} \\
-        Langchain digunakan untuk menyusun *retrieval chain* dengan LLM. Ini memungkinkan sistem mencari informasi berbasis vektor dan memberikan hasil yang relevan ke model generatif sebagai konteks input. Hal ini mengatasi keterbatasan LLM dalam menjawab berdasarkan dokumen spesifik yang diunggah pengguna.
-
-  \item \textbf{Pengujian dan Evaluasi Fungsionalitas} \\
-        Pengujian dilakukan pada setiap iterasi untuk memastikan bahwa fitur utama berjalan dengan baik. Evaluasi mencakup respons chatbot terhadap pertanyaan berbasis jurnal, ketepatan sitasi, dan kenyamanan fitur anotasi PDF. Penilaian dilakukan secara subjektif melalui uji coba dengan pengguna terbatas (student testing).
-
-  \item \textbf{Penyempurnaan dan Dokumentasi} \\
-        Berdasarkan hasil evaluasi, dilakukan revisi pada tampilan dan fungsionalitas sistem, serta dokumentasi seluruh proses sebagai bagian dari pelaporan tugas akhir.
-\end{enumerate}
-
-\subsubsection*{Teknik Pengumpulan dan Analisis Data}
-
+\section{Tools dan Peralatan Penelitian}
+Penelitian ini menggunakan kombinasi perangkat lunak dan layanan AI untuk membangun sistem. Beberapa alat dan teknologi utama meliputi:
 \begin{itemize}
-  \item \textbf{Teknik Pengumpulan Data}:
+  \item \textbf{Bahasa pemrograman:} JavaScript (Node.js), TypeScript (Next.js).
+  \item \textbf{Framework AI:} Langchain untuk integrasi LLM dan retrieval.
+  \item \textbf{Model AI:} OpenAI GPT-4 melalui API resmi.
+  \item \textbf{Basis data:} Supabase PostgreSQL untuk data struktural, dan Chroma sebagai vektor store.
+  \item \textbf{\emph{Tools} pendukung}:
         \begin{itemize}
-          \item Studi literatur untuk merumuskan landasan teori dan permasalahan.
-          \item Observasi langsung terhadap pengalaman pengguna dalam memahami jurnal.
-          \item Uji coba aplikasi oleh mahasiswa untuk mengumpulkan umpan balik terhadap kegunaan dan fungsionalitas.
-        \end{itemize}
-  \item \textbf{Teknik Analisis Data}:
-        \begin{itemize}
-          \item Analisis deskriptif dari hasil pengujian fitur.
-          \item Analisis fungsional terhadap ketepatan respons chatbot.
-          \item Evaluasi usability berdasarkan kepuasan pengguna dan efisiensi interaksi.
+          \item \emph{Postman} untuk API \emph{testing}.
+          \item \emph{Visual Studio Code} untuk \emph{development}.
+          \item \emph{GitHub} untuk kontrol versi.
         \end{itemize}
 \end{itemize}
 
-\subsection*{Model Pendekatan: RAG dan Langchain}
+\input{components/bab-3/system-design.tex}
+\input{components/bab-3/system-impl.tex}
+\input{components/bab-3/features.tex}
+\section{Teknik Pengumpulan dan Analisis Data}
+Data yang dikumpulkan mencakup interaksi pengguna dengan sistem, log respons chatbot, dan hasil uji coba fungsionalitas. Teknik pengumpulan data dilakukan melalui:
+\begin{itemize}
+  \item \textbf{Observasi langsung} saat pengguna menguji aplikasi.
+  \item \textbf{Log sistem} untuk merekam performa model dan hasil pencarian RAG.
+  \item \textbf{Kuesioner} untuk mengevaluasi aspek usability dari sisi pengguna.
+\end{itemize}
 
-Metode \textbf{Retrieval-Augmented Generation (RAG)} digunakan sebagai pendekatan utama dalam sistem chatbot. RAG menggabungkan dua tahap utama: tahap \textit{retrieval} untuk mengambil informasi relevan dari basis data dokumen, dan tahap \textit{generation} untuk membentuk respons berdasarkan konteks yang ditemukan. Pendekatan ini dipilih karena LLM konvensional memiliki keterbatasan dalam memberikan jawaban berbasis dokumen tertentu tanpa akses eksplisit terhadap kontennya.
-
-Framework \textbf{Langchain} digunakan untuk mengatur *pipeline* kerja chatbot mulai dari pengelolaan memori, integrasi vector store, hingga pembuatan prompt untuk model LLM. Langchain memungkinkan pembuatan sistem modular yang lebih mudah dirawat dan dikembangkan, serta menyediakan abstraksi yang membantu mengelola kompleksitas dalam integrasi AI.
+\section{Pengujian dan Evaluasi}
+Setiap iterasi diuji dengan pendekatan:
+\begin{itemize}
+  \item \textbf{Pengujian fungsional} untuk memastikan seluruh fitur seperti upload, tanya jawab, sitasi, dan anotasi bekerja sebagaimana mestinya.
+  \item \textbf{Evaluasi usability} melalui uji coba langsung oleh pengguna sasaran (mahasiswa) untuk mendapatkan umpan balik terkait kemudahan dan efektivitas penggunaan sistem.
+\end{itemize}
+\input{components/bab-3/deployment.tex}

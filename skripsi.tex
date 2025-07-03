@@ -21,6 +21,62 @@
 \usepackage{graphicx}
 \usepackage{indentfirst}
 \usepackage{tocloft}
+% code snippet
+\usepackage{listings}
+\usepackage{xcolor} % for custom colors
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\lstdefinelanguage{TypeScript}{
+  keywords={
+    typeof, new, true, false, catch, function, return, null, switch, var, let, const,
+    if, in, while, do, else, case, break, for, continue, of, async, await, yield, try, throw
+  },
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={
+    class, export, boolean, number, string, interface, type, implements, import, this,
+    public, private, protected, readonly, namespace, enum, any, unknown, never, void
+  },
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\lstset{
+   language=TypeScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b,
+   frame=single,
+   keywordstyle=\color{blue},
+   commentstyle=\color{gray},
+   stringstyle=\color{teal}
+}
 \onehalfspacing
 
 \makeatletter
@@ -97,8 +153,8 @@
 \renewcommand{\lstlistingname}{Listing}
 
 \begin{document}
-\input{components/made-hypen.tex} 
-\sloppy 
+\input{components/made-hypen.tex}
+\sloppy
 \thispagestyle{empty}
 
 \addcontentsline{toc}{chapter}{HALAMAN JUDUL}
@@ -109,210 +165,210 @@
 \vspace*{10mm}
 
 \begin{center}
-{\large\textbf{UNIVERSITAS GUNADARMA}}{\large\par}
-\par\end{center}
+  {\large\textbf{UNIVERSITAS GUNADARMA}}{\large\par}
+  \par\end{center}
 
 \begin{center}
-{\large\textbf{FAKULTAS \MakeUppercase{\Fakultas}}}{\large\par}
-\par\end{center}
+  {\large\textbf{FAKULTAS \MakeUppercase{\Fakultas}}}{\large\par}
+  \par\end{center}
 
 \vspace*{10mm}
 
 \begin{center}
-\includegraphics[width=55mm]{images/gundarlogo.png}
-\par\end{center}
+  \includegraphics[width=55mm]{images/gundarlogo.png}
+  \par\end{center}
 
 \vspace*{3mm}
 
 \begin{center}
-{\Large\textbf{SKRIPSI}}{\Large\par}
-\par\end{center}
+  {\Large\textbf{SKRIPSI}}{\Large\par}
+  \par\end{center}
 
 \vspace*{7mm}
 
 \begin{center}
-\begin{tabular}{|>{\centering}m{13.5cm}|}
-\hline 
-\centering{}~~\tabularnewline
-\centering{}\textbf{\MakeUppercase{\Judul}}\tabularnewline
-~~\tabularnewline
-\centering{}%
-\begin{tabular}{lcl}
-Nama & : & \Penulis\tabularnewline
-NPM & : & \NPM\tabularnewline
-Fakultas & : & \Fakultas\tabularnewline
-Program Studi & : & \Jurusan\tabularnewline
-Dosen Pembimbing 1 & : & \DosenPembimbingA\tabularnewline
-Dosen Pembimbing 2 & : & \DosenPembimbingB\tabularnewline
-\end{tabular}\tabularnewline
-~~\tabularnewline
-\hline 
-\end{tabular}
-\par\end{center}
+  \begin{tabular}{|>{\centering}m{13.5cm}|}
+    \hline
+    \centering{}~~\tabularnewline
+    \centering{}\textbf{\MakeUppercase{\Judul}}\tabularnewline
+    ~~\tabularnewline
+    \centering{}%
+    \begin{tabular}{lcl}
+      Nama               & : & \Penulis\tabularnewline
+      NPM                & : & \NPM\tabularnewline
+      Fakultas           & : & \Fakultas\tabularnewline
+      Program Studi      & : & \Jurusan\tabularnewline
+      Dosen Pembimbing 1 & : & \DosenPembimbingA\tabularnewline
+      Dosen Pembimbing 2 & : & \DosenPembimbingB\tabularnewline
+    \end{tabular}\tabularnewline
+    ~~\tabularnewline
+    \hline
+  \end{tabular}
+  \par\end{center}
 
- \vspace{7mm}
+\vspace{7mm}
 
 \begin{center}
-\begin{tabular}{c}
-\begin{cellvarwidth}[t]
-\centering
-\textbf{Diajukan Guna Melengkapi Sebagian Syarat Dalam Mencapai }
+  \begin{tabular}{c}
+    \begin{cellvarwidth}[t]
+      \centering
+      \textbf{Diajukan Guna Melengkapi Sebagian Syarat Dalam Mencapai }
 
-\textbf{Gelar Setara Sarjana Strata Satu (S1)}
-\end{cellvarwidth}\tabularnewline
-\textbf{\Kota}\tabularnewline
-\textbf{\Tahun}\tabularnewline
-\end{tabular}
-\par\end{center}
+      \textbf{Gelar Setara Sarjana Strata Satu (S1)}
+    \end{cellvarwidth}\tabularnewline
+    \textbf{\Kota}\tabularnewline
+    \textbf{\Tahun}\tabularnewline
+  \end{tabular}
+  \par\end{center}
 
 \chapter*{{\huge PERNYATAAN ORISINALITAS DAN PUBLIKASI}}
 
 \begin{singlespace}
-\addcontentsline{toc}{chapter}{PERNYATAAN ORISINALITAS DAN PUBLIKASI}
-\thispagestyle{romanstyle}
+  \addcontentsline{toc}{chapter}{PERNYATAAN ORISINALITAS DAN PUBLIKASI}
+  \thispagestyle{romanstyle}
 
-Saya yang bertanda tangan di bawah ini,
+  Saya yang bertanda tangan di bawah ini,
 
-\vspace*{10mm}
+  \vspace*{10mm}
 
-\hspace{-6pt}%
-\begin{tabular}{>{\raggedright}p{30mm}c>{\raggedright}p{0.66\textwidth}}
-Nama & : & \Penulis\tabularnewline
-NPM & : & \NPM\tabularnewline
-Judul PI & : & \MakeUppercase{\Judul}\tabularnewline
-Tanggal Sidang & : & \TanggalSidang\tabularnewline
-Tanggal Lulus & : & \TanggalLulus\tabularnewline
-\end{tabular}
+  \hspace{-6pt}%
+  \begin{tabular}{>{\raggedright}p{30mm}c>{\raggedright}p{0.66\textwidth}}
+    Nama           & : & \Penulis\tabularnewline
+    NPM            & : & \NPM\tabularnewline
+    Judul PI       & : & \MakeUppercase{\Judul}\tabularnewline
+    Tanggal Sidang & : & \TanggalSidang\tabularnewline
+    Tanggal Lulus  & : & \TanggalLulus\tabularnewline
+  \end{tabular}
 
-\vspace*{10mm}
+  \vspace*{10mm}
 
-\noindent menyatakan bahwa tulisan ini adalah merupakan hasil karya
-saya sendiri dan dapat dipublikasikan sepenuhnya oleh Universitas
-Gunadarma. Segala kutipan dalam bentuk apa pun telah mengikuti kaidah
-dan etika yang berlaku. Semua hak cipta dari logo serta produk yang
-disebut dalam buku ini adalah milik masing-masing pemegang haknya,
-kecuali disebutkan lain. Mengenai isi dan tulisan merupakan tanggung
-jawab Penulis, bukan Universitas Gunadarma.
+  \noindent menyatakan bahwa tulisan ini adalah merupakan hasil karya
+  saya sendiri dan dapat dipublikasikan sepenuhnya oleh Universitas
+  Gunadarma. Segala kutipan dalam bentuk apa pun telah mengikuti kaidah
+  dan etika yang berlaku. Semua hak cipta dari logo serta produk yang
+  disebut dalam buku ini adalah milik masing-masing pemegang haknya,
+  kecuali disebutkan lain. Mengenai isi dan tulisan merupakan tanggung
+  jawab Penulis, bukan Universitas Gunadarma.
 
-Demikianlah pernyataan ini dibuat dengan sebenarnya dan dengan penuh
-kesadaran.
+  Demikianlah pernyataan ini dibuat dengan sebenarnya dan dengan penuh
+  kesadaran.
 
-\vspace*{15mm}
+  \vspace*{15mm}
 \end{singlespace}
 
 \begin{flushright}
-\begin{tabular}{c}
-\KotaPenulis, \  \Tanggal\ \Bulan\ \Tahun\tabularnewline
-\vspace*{25mm}\tabularnewline
-\Penulis\tabularnewline
-\end{tabular}
-\par\end{flushright}
+  \begin{tabular}{c}
+    \KotaPenulis, \  \Tanggal\ \Bulan\ \Tahun\tabularnewline
+    \vspace*{25mm}\tabularnewline
+    \Penulis\tabularnewline
+  \end{tabular}
+  \par\end{flushright}
 
 \chapter*{{\huge LEMBAR PENGESAHAN}}
 
 \addcontentsline{toc}{chapter}{LEMBAR PENGESAHAN}
 
 \begin{center}
-\begin{tabular}{|c|ll|c|}
-\multicolumn{4}{c}{\textbf{KOMISI PEMBIMBING}}\tabularnewline
-\hline 
-\textbf{NO} & \multicolumn{2}{c|}{\textbf{NAMA}} & \textbf{KEDUDUKAN}\tabularnewline
-\hline 
-1. & \KetuaPembimbing &  & Ketua\tabularnewline
-\hline 
-2. & \AnggotaPembimbingA &  & Anggota\tabularnewline
-\hline 
-3. & \AnggotaPembimbingB &  & Anggota\tabularnewline
-\hline 
-\end{tabular}
-\par\end{center}
+  \begin{tabular}{|c|ll|c|}
+    \multicolumn{4}{c}{\textbf{KOMISI PEMBIMBING}}\tabularnewline
+    \hline
+    \textbf{NO} & \multicolumn{2}{c|}{\textbf{NAMA}} & \textbf{KEDUDUKAN}\tabularnewline
+    \hline
+    1.          & \KetuaPembimbing                   &                                   & Ketua\tabularnewline
+    \hline
+    2.          & \AnggotaPembimbingA                &                                   & Anggota\tabularnewline
+    \hline
+    3.          & \AnggotaPembimbingB                &                                   & Anggota\tabularnewline
+    \hline
+  \end{tabular}
+  \par\end{center}
 
 \begin{center}
-\begin{tabular}{|c|ll|c|}
-\multicolumn{4}{c}{\textbf{PANITIA UJIAN}}\tabularnewline
-\hline 
-\textbf{NO} & \multicolumn{2}{c|}{\textbf{NAMA}} & \textbf{KEDUDUKAN}\tabularnewline
-\hline 
-1. & \KetuaUjian &  & Ketua\tabularnewline
-\hline 
-2. & \SekUjian &  & Sekretaris\tabularnewline
-\hline 
-3. & \AnggotaUjianA &  & Anggota\tabularnewline
-\hline 
-4. & \AnggotaUjianB &  & Anggota\tabularnewline
-\hline 
-5. & \AnggotaUjianC &  & Anggota\tabularnewline
-\hline 
-\end{tabular}
-\par\end{center}
+  \begin{tabular}{|c|ll|c|}
+    \multicolumn{4}{c}{\textbf{PANITIA UJIAN}}\tabularnewline
+    \hline
+    \textbf{NO} & \multicolumn{2}{c|}{\textbf{NAMA}} & \textbf{KEDUDUKAN}\tabularnewline
+    \hline
+    1.          & \KetuaUjian                        &                                   & Ketua\tabularnewline
+    \hline
+    2.          & \SekUjian                          &                                   & Sekretaris\tabularnewline
+    \hline
+    3.          & \AnggotaUjianA                     &                                   & Anggota\tabularnewline
+    \hline
+    4.          & \AnggotaUjianB                     &                                   & Anggota\tabularnewline
+    \hline
+    5.          & \AnggotaUjianC                     &                                   & Anggota\tabularnewline
+    \hline
+  \end{tabular}
+  \par\end{center}
 
 \begin{center}
-\vspace*{5mm}
-\par\end{center}
+  \vspace*{5mm}
+  \par\end{center}
 
 \begin{center}
-\begin{tabular}{ccc}
-\multicolumn{3}{c}{\textbf{Mengetahui,}}\tabularnewline
-\multicolumn{3}{c}{\textbf{\vspace*{5mm}}}\tabularnewline
-\textbf{Dosen Pembimbing} &  & \textbf{Bagian Sidang Ujian}\tabularnewline
-\textbf{\vspace*{10mm}} &  & \textbf{\vspace*{10mm}}\tabularnewline
-\textbf{(\DosenPembimbingB)} &  & \textbf{(\KoordinatorPI)}\tabularnewline
-\end{tabular}
-\par\end{center}
+  \begin{tabular}{ccc}
+    \multicolumn{3}{c}{\textbf{Mengetahui,}}\tabularnewline
+    \multicolumn{3}{c}{\textbf{\vspace*{5mm}}}\tabularnewline
+    \textbf{Dosen Pembimbing}    &  & \textbf{Bagian Sidang Ujian}\tabularnewline
+    \textbf{\vspace*{10mm}}      &  & \textbf{\vspace*{10mm}}\tabularnewline
+    \textbf{(\DosenPembimbingB)} &  & \textbf{(\KoordinatorPI)}\tabularnewline
+  \end{tabular}
+  \par\end{center}
 
 \chapter*{ABSTRAK}
 
 \begin{singlespace}
-\addcontentsline{toc}{chapter}{ABSTRAK}
+  \addcontentsline{toc}{chapter}{ABSTRAK}
 
-\noindent\Penulis. \NPM
+  \noindent\Penulis. \NPM
 
-\noindent\MakeUppercase{\Judul} \\
-Skripsi, Fakultas \Fakultas, Program Studi \Jurusan, Universitas
-Gunadarma, \Tahun
+  \noindent\MakeUppercase{\Judul} \\
+  Skripsi, Fakultas \Fakultas, Program Studi \Jurusan, Universitas
+  Gunadarma, \Tahun
 
-\noindent Kata Kunci : \KataKunci
+  \noindent Kata Kunci : \KataKunci
 
-\medskip{}
+  \medskip{}
 
-\noindent (\JumlahHalamanDepan \ + \JumlahHalaman \ + lampiran)
+  \noindent (\JumlahHalamanDepan \ + \JumlahHalaman \ + lampiran)
 
-\bigskip{}
+  \bigskip{}
 
-\emph{Deepfake}, teknologi yang memanfaatkan \emph{machine learning}
-untuk memanipulasi video dan gambar, telah menjadi tantangan besar
-dalam beberapa tahun terakhir.
+  \emph{Deepfake}, teknologi yang memanfaatkan \emph{machine learning}
+  untuk memanipulasi video dan gambar, telah menjadi tantangan besar
+  dalam beberapa tahun terakhir.
 
-\bigskip{}
+  \bigskip{}
 
-\noindent Daftar Pustaka (\TahunPustaka)
+  \noindent Daftar Pustaka (\TahunPustaka)
 \end{singlespace}
 
 \chapter*{ABSTRACT}
 
 \begin{singlespace}
-\addcontentsline{toc}{chapter}{ABSTRACT}
+  \addcontentsline{toc}{chapter}{ABSTRACT}
 
-\noindent\Penulis. \NPM
+  \noindent\Penulis. \NPM
 
-\noindent\MakeUppercase{\JudulInggris} \\
-Thesis, Faculty of \Faculty, \Major\ Study Program, Gunadarma University,
-\Tahun
+  \noindent\MakeUppercase{\JudulInggris} \\
+  Thesis, Faculty of \Faculty, \Major\ Study Program, Gunadarma University,
+  \Tahun
 
-\noindent Keywords : \KeyWords
+  \noindent Keywords : \KeyWords
 
-\medskip{}
+  \medskip{}
 
-\noindent (\JumlahHalamanDepan \ + \JumlahHalaman \ + attachment)
+  \noindent (\JumlahHalamanDepan \ + \JumlahHalaman \ + attachment)
 
-\bigskip{}
+  \bigskip{}
 
-Deepfake, a technology that uses machine learning to manipulate videos
-and images, has become a major challenge in recent years.
+  Deepfake, a technology that uses machine learning to manipulate videos
+  and images, has become a major challenge in recent years.
 
-\bigskip{}
+  \bigskip{}
 
-\noindent Bibliography (\TahunPustaka)
+  \noindent Bibliography (\TahunPustaka)
 \end{singlespace}
 
 \chapter*{KATA PENGANTAR}
@@ -330,21 +386,21 @@ Fakultas Teknologi Industri, Universitas Gunadarma.
 
 Walaupun dalam penyusunannya menemui berbagai kendala, berkat bantuan
 dan dorongan dari berbagai pihak, skripsi ini dapat diselesaikan dengan
-baik. Penulis ingin mengucapkan terima kasih kepada: 
+baik. Penulis ingin mengucapkan terima kasih kepada:
 \begin{enumerate}
-\item \Rektor, selaku Rektor Universitas Gunadarma.
-\item \Dekan, selaku Dekan Fakultas Teknologi Industri, Universitas Gunadarma.
-\item \KetuaJurusan , selaku Ketua Program Studi \Jurusan.
-\item \KoordinatorPI, selaku Kepala Subbagian Sidang PI Fakultas Teknologi
-Industri.
-\item \DosenPembimbingA\ dan \DosenPembimbingB, sebagai Dosen Pembimbing
-yang di tengah-tengah aktivitas dan kesibukannya telah membimbing
-dan memberikan dorongan serta dukungan, sehingga penulisan ini dapat
-diselesaikan.
-\item Seluruh rekan 4IA01 di Universitas Gunadarma yang telah banyak
-membantu serta memberi semangat selama proses penulisan. 
-\item Semua pihak yang tidak bisa disebutkan yang telah membantu penyelesaian
-skripsi ini, diucapkan juga terima kasih atas segala bantuan dan sarannya. 
+  \item \Rektor, selaku Rektor Universitas Gunadarma.
+  \item \Dekan, selaku Dekan Fakultas Teknologi Industri, Universitas Gunadarma.
+  \item \KetuaJurusan , selaku Ketua Program Studi \Jurusan.
+  \item \KoordinatorPI, selaku Kepala Subbagian Sidang PI Fakultas Teknologi
+        Industri.
+  \item \DosenPembimbingA\ dan \DosenPembimbingB, sebagai Dosen Pembimbing
+        yang di tengah-tengah aktivitas dan kesibukannya telah membimbing
+        dan memberikan dorongan serta dukungan, sehingga penulisan ini dapat
+        diselesaikan.
+  \item Seluruh rekan 4IA01 di Universitas Gunadarma yang telah banyak
+        membantu serta memberi semangat selama proses penulisan.
+  \item Semua pihak yang tidak bisa disebutkan yang telah membantu penyelesaian
+        skripsi ini, diucapkan juga terima kasih atas segala bantuan dan sarannya.
 \end{enumerate}
 \indent
 
@@ -356,20 +412,20 @@ skripsi ini dapat memberikan manfaat bagi para pembaca dan menjadi
 kontribusi kecil bagi kemajuan ilmu pengetahuan.
 
 \begin{singlespace}
-\vspace*{15mm}
+  \vspace*{15mm}
 
 
 \end{singlespace}\begin{flushright}
-\begin{tabular}{c}
-\KotaPenulis, \BlnThn\vspace{10pt}\tabularnewline
-Penulis\tabularnewline
-\vspace*{25mm}\tabularnewline
-\Penulis\tabularnewline
-\end{tabular}
-\par\end{flushright}
+  \begin{tabular}{c}
+    \KotaPenulis, \BlnThn\vspace{10pt}\tabularnewline
+    Penulis\tabularnewline
+    \vspace*{25mm}\tabularnewline
+    \Penulis\tabularnewline
+  \end{tabular}
+  \par\end{flushright}
 
 \clearpage
-\phantomsection 
+\phantomsection
 \vspace*{7mm}
 
 \thispagestyle{plain}
@@ -379,7 +435,7 @@ Penulis\tabularnewline
 \tableofcontents{}
 
 \clearpage
-\phantomsection 
+\phantomsection
 \vspace*{7mm}
 
 \thispagestyle{plain}
@@ -389,7 +445,7 @@ Penulis\tabularnewline
 \listoftables
 
 \clearpage
-\phantomsection 
+\phantomsection
 \vspace*{7mm}
 
 \thispagestyle{plain}
@@ -399,7 +455,7 @@ Penulis\tabularnewline
 \listoffigures
 
 \clearpage
-\phantomsection 
+\phantomsection
 
 \thispagestyle{plain}
 \addcontentsline{toc}{chapter}{DAFTAR LAMPIRAN}
@@ -409,8 +465,8 @@ Penulis\tabularnewline
 \input{components/bab-3.tex}
 \input{components/bab-4.tex}
 \input{components/bab-5.tex}
-\clearpage 
-\phantomsection 
+\clearpage
+\phantomsection
 \renewcommand\bibname{DAFTAR PUSTAKA}\bibliographystyle{apalike}
 \addcontentsline{toc}{chapter}{\bibname}\bibliography{refs}
 
@@ -429,9 +485,9 @@ Penulis\tabularnewline
 
 \subsection*{Ukuran \emph{Dataset}}
 \begin{center}
-\includegraphics[width=4.55cm]{images/prop_train} \includegraphics[width=4.55cm]{images/prop_valid}
-\includegraphics[width=4.55cm]{images/prop_test}
-\par\end{center}
+  \includegraphics[width=4.55cm]{images/prop_train} \includegraphics[width=4.55cm]{images/prop_valid}
+  \includegraphics[width=4.55cm]{images/prop_test}
+  \par\end{center}
 
 \clearpage
 \phantomsection
@@ -442,8 +498,8 @@ Penulis\tabularnewline
 
 \subsection*{Arsitektur Model}
 \begin{center}
-\includegraphics[width=14cm]{images/model_1}
-\par\end{center}
+  \includegraphics[width=14cm]{images/model_1}
+  \par\end{center}
 
 \subsection*{pi24\_train.ipynb}
 

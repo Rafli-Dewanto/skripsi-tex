@@ -1,0 +1,88 @@
+\section{Implementasi Sistem}
+
+Tahap implementasi merupakan proses penting dalam membangun aplikasi sesuai rancangan dan spesifikasi teknis. Sistem ini dikembangkan menggunakan pendekatan \textit{fullstack} dengan framework Next.js 15 (App Router) dan database PostgreSQL yang dihosting melalui layanan Neon. Tidak ada \textit{back-end} terpisah, seluruh \textit{server logic} ditulis dalam API Routes di dalam struktur Next.js. Implementasi juga melibatkan integrasi Langchain, Retrieval-Augmented Generation (RAG), OpenAI API, serta fitur anotasi PDF menggunakan PDF.js. Berikut adalah langkah-langkah implementasi yang dilakukan:
+
+\subsection{Persiapan Database PostgreSQL (Neon)}
+
+\begin{itemize}
+  \item Membuat akun dan proyek baru di \url{https://neon.tech}, kemudian membuat \texttt{branch}, \texttt{database}, dan \texttt{user}.
+  \item Menyimpan kredensial \texttt{host}, \texttt{database}, \texttt{user}, dan \texttt{password} ke dalam file \texttt{.env} proyek.
+  \item Menyusun skema database berdasarkan ERD menggunakan perintah SQL secara manual atau melalui migration tool seperti Prisma.
+  \item Tabel-tabel utama meliputi: \texttt{users}, \texttt{chats}, \texttt{messages}, \texttt{documents}, dan \texttt{citations}.
+\end{itemize}
+
+\subsection{Inisialisasi Proyek Next.js 15}
+
+\begin{itemize}
+  \item Menginisialisasi proyek dengan perintah:
+  \begin{verbatim}
+  npx create-next-app@latest ai-journal-assistant --typescript --app
+  \end{verbatim}
+  \item Mengaktifkan Tailwind CSS dan PostCSS untuk styling antarmuka.
+  \item Menyiapkan folder \texttt{app/api/} untuk menyimpan seluruh logika server-side.
+\end{itemize}
+
+\subsection{Integrasi PostgreSQL dengan ORM}
+
+\begin{itemize}
+  \item Menggunakan Prisma sebagai ORM untuk menghubungkan aplikasi dengan database PostgreSQL.
+  \item Menjalankan inisialisasi Prisma:
+  \begin{verbatim}
+  npx prisma init
+  \end{verbatim}
+  \item Mendefinisikan skema \texttt{schema.prisma} berdasarkan struktur tabel dan relasi.
+  \item Melakukan migrasi skema ke database Neon:
+  \begin{verbatim}
+  npx prisma migrate dev
+  \end{verbatim}
+  \item Menggunakan \texttt{@prisma/client} pada API routes untuk melakukan kueri data.
+\end{itemize}
+
+\subsection{Integrasi Langchain dan RAG}
+
+\begin{itemize}
+  \item Menginstal dependensi utama:
+  \begin{verbatim}
+  npm install langchain @langchain/community @langchain/openai
+  \end{verbatim}
+  \item Menggunakan pipeline \texttt{RetrievalQAChain} dari Langchain untuk menghubungkan retriever dan model LLM (GPT-4).
+  \item Langkah-langkah implementasi:
+  \begin{itemize}
+    \item Mengekstrak teks dari PDF.
+    \item Memecah teks menjadi potongan pendek (\texttt{text splitting}).
+    \item Membuat embeddings dengan model dari OpenAI (\texttt{text-embedding-ada-002}).
+    \item Menyimpan embeddings ke dalam \texttt{vector store} (menggunakan Chroma).
+    \item Melakukan similarity search ketika pengguna mengajukan pertanyaan.
+    \item Menyediakan jawaban dari LLM yang memperhitungkan hasil retrieval.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Integrasi OpenAI API}
+
+\begin{itemize}
+  \item Mengatur API Key di \texttt{.env} sebagai \texttt{OPENAI\_API\_KEY}.
+  \item Menggunakan endpoint \texttt{/api/chat} untuk menerima \texttt{prompt} dan merespons dengan hasil dari GPT-4.
+  \item Mendukung konteks percakapan dengan menyimpan riwayat \texttt{messages} pada database.
+\end{itemize}
+
+\subsection{Penyimpanan Dokumen PDF dengan Vercel Blob}
+
+\begin{itemize}
+  \item Menggunakan \texttt{@vercel/blob} untuk menyimpan file PDF dari pengguna secara langsung ke storage Vercel.
+  \item File PDF ini kemudian diakses kembali oleh sistem untuk proses ekstraksi isi dokumen.
+  \item URL dokumen disimpan pada tabel \texttt{documents} dalam database.
+\end{itemize}
+
+\subsection{Manajemen State dan Cache dengan Redis (Upstash)}
+\begin{itemize}
+  \item Menggunakan Redis sebagai cache session dan penyimpanan embeddings sementara.
+  \item Mendaftar ke layanan \url{https://upstash.com} dan menambahkan variabel \texttt{UPSTASH\_REDIS\_URL} dan \texttt{TOKEN} pada \texttt{.env}.
+  \item Menggunakan package \texttt{@upstash/redis} untuk operasi Redis dalam API Routes.
+\end{itemize}
+
+\subsection{Preview dan Anotasi PDF dengan PDF.js}
+\begin{itemize}
+  \item Mengintegrasikan \texttt{pdfjs-dist} untuk menampilkan dokumen PDF secara langsung di browser.
+  \item Fitur anotasi dikembangkan dengan menambahkan layer interaktif di atas canvas, yang mencatat teks yang dipilih dan menampilkan input komentar.
+  \item Catatan dan posisi anotasi disimpan dalam tabel \texttt{annotations} atau bagian dari \texttt{documents}.
+\end{itemize}

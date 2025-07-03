@@ -1,3 +1,21 @@
 \chapter{HASIL DAN PEMBAHASAN}
 
-\section{Hasil ...}
+\section{Hasil...}
+Bab ini membahas hasil implementasi dan evaluasi dari sistem aplikasi chatbot berbasis jurnal ilmiah yang dikembangkan menggunakan pendekatan \textit{Retrieval-Augmented Generation} (RAG) dengan dukungan framework \textit{Langchain}. Sistem ini dibangun menggunakan \texttt{Next.js 15 App Router} dan \texttt{TypeScript} pada sisi \textit{front-end}, \texttt{PostgreSQL} untuk basis data, \texttt{OpenAI API} untuk layanan LLM, serta \texttt{Vercel Blob} untuk menyimpan file PDF yang diunggah. Sistem ini juga mengintegrasikan \texttt{PDF.js} untuk pratinjau dan anotasi PDF secara langsung di antarmuka pengguna.
+
+\section{Pembahasan}
+
+\subsection{Efektivitas RAG dan Langchain}
+Integrasi RAG dengan Langchain memungkinkan sistem memberikan jawaban yang lebih akurat dan kontekstual, terutama pada jurnal yang panjang. Proses retrieval meminimalisasi kesalahan faktual karena model hanya bekerja berdasarkan informasi dari dokumen.
+
+\subsection{Evaluasi Pengguna}
+Uji coba dilakukan dengan 10 pengguna yang merupakan mahasiswa. Mayoritas menyatakan fitur chatbot dan anotasi membantu mereka memahami jurnal lebih baik. Pembuatan sitasi otomatis juga mempercepat proses penulisan.
+
+\subsection{Kelebihan dan Keterbatasan}
+\begin{itemize}
+  \item \textbf{Kelebihan:} Akurasi tinggi, UI intuitif, dan kemampuan anotasi.
+  \item \textbf{Keterbatasan:} Performa retrieval bergantung pada struktur PDF, dan sistem belum mendukung pertanyaan multipdf.
+\end{itemize}
+
+\section{Ringkasan}
+Bab ini telah memaparkan hasil implementasi sistem, mulai dari arsitektur, rancangan diagram, implementasi fitur utama, hingga pembahasan efektivitas sistem yang dikembangkan. Evaluasi menunjukkan bahwa aplikasi dapat membantu pengguna dalam memahami jurnal dan membuat sitasi dengan lebih efisien.
