@@ -3,8 +3,8 @@ Pada tahap desain, dilakukan:
 \begin{itemize}
   \item Perancangan arsitektur sistem yang mengintegrasikan \textit{front-end}, \textit{back-end}, dan layanan AI eksternal.
   \item Perancangan alur proses RAG menggunakan \textit{Langchain}, yang menghubungkan retriever, dokumentasi, dan model LLM.
-  \item Desain tampilan antarmuka pengguna (\textit{user interface}) untuk memudahkan mahasiswa dalam mengunggah artikel ilmiah, melakukan interaksi tanya-jawab, membuat sitasi, dan memberi anotasi pada PDF.
-  \item Perancangan struktur database menggunakan \emph{PostgreSQL} dan \emph{Redis} untuk menyimpan metadata, histori interaksi, dan catatan pengguna.
+  \item Desain tampilan antarmuka pengguna (\textit{user interface}) untuk memudahkan mahasiswa dalam mengunggah artikel ilmiah, melakukan interaksi tanya-jawab, membuat sitasi, dan memberi anotasi pada PDF.\@
+  \item Perancangan struktur database menggunakan \textit{PostgreSQL} dan \textit{Redis} untuk menyimpan metadata, histori interaksi, dan catatan pengguna.
 \end{itemize}
 
 \subsection{Arsitektur Sistem}
@@ -13,8 +13,7 @@ Sistem dirancang dalam arsitektur berbasis layanan terpisah (\textit{modular}) u
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\textwidth]{images/system-arch.png}
-  \caption{Arsitektur sistem chatbot dengan RAG dan Langchain}
-  \label{fig:arsitektur-sistem}
+  \caption{Arsitektur sistem chatbot dengan RAG dan Langchain}\label{fig:arsitektur-sistem}
 \end{figure}
 
 \subsection{Use Case Diagram}

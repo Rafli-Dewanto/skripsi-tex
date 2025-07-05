@@ -7,7 +7,7 @@ Tahap implementasi merupakan proses penting dalam membangun aplikasi sesuai ranc
 \begin{itemize}
   \item Membuat akun dan proyek baru di \url{https://neon.tech}, kemudian membuat \texttt{branch}, \texttt{database}, dan \texttt{user}.
   \item Menyimpan kredensial \texttt{host}, \texttt{database}, \texttt{user}, dan \texttt{password} ke dalam file \texttt{.env} proyek.
-  \item Menyusun skema database berdasarkan ERD menggunakan perintah SQL secara manual atau melalui migration tool seperti Prisma.
+  \item Menyusun skema database berdasarkan ERD menggunakan perintah SQL secara manual.
   \item Tabel-tabel utama meliputi: \texttt{users}, \texttt{chats}, \texttt{messages}, \texttt{documents}, dan \texttt{citations}.
 \end{itemize}
 
@@ -22,22 +22,6 @@ Tahap implementasi merupakan proses penting dalam membangun aplikasi sesuai ranc
   \item Menyiapkan folder \texttt{app/api/} untuk menyimpan seluruh logika server-side.
 \end{itemize}
 
-\subsection{Integrasi PostgreSQL dengan ORM}
-
-\begin{itemize}
-  \item Menggunakan Prisma sebagai ORM untuk menghubungkan aplikasi dengan database PostgreSQL.
-  \item Menjalankan inisialisasi Prisma:
-  \begin{verbatim}
-  npx prisma init
-  \end{verbatim}
-  \item Mendefinisikan skema \texttt{schema.prisma} berdasarkan struktur tabel dan relasi.
-  \item Melakukan migrasi skema ke database Neon:
-  \begin{verbatim}
-  npx prisma migrate dev
-  \end{verbatim}
-  \item Menggunakan \texttt{@prisma/client} pada API routes untuk melakukan kueri data.
-\end{itemize}
-
 \subsection{Integrasi Langchain dan RAG}
 
 \begin{itemize}
@@ -48,7 +32,7 @@ Tahap implementasi merupakan proses penting dalam membangun aplikasi sesuai ranc
   \item Menggunakan pipeline \texttt{RetrievalQAChain} dari Langchain untuk menghubungkan retriever dan model LLM (GPT-4).
   \item Langkah-langkah implementasi:
   \begin{itemize}
-    \item Mengekstrak teks dari PDF.
+    \item Mengekstrak teks dari PDF.\@
     \item Memecah teks menjadi potongan pendek (\texttt{text splitting}).
     \item Membuat embeddings dengan model dari OpenAI (\texttt{text-embedding-ada-002}).
     \item Menyimpan embeddings ke dalam \texttt{vector store} (menggunakan Chroma).

@@ -1,0 +1,20 @@
+Cuplikan kode pada Listing~\ref{lst:pdf-anotasi} menunjukkan bagaimana sistem menampilkan pratinjau dokumen PDF beserta fitur anotasi dalam antarmuka pengguna. Komponen ini dibungkus dalam komponen kondisional \texttt{<Show>} yang hanya akan menampilkan pratinjau jika beberapa kondisi terpenuhi: nilai \texttt{attachmentUrl} tidak kosong, \texttt{isPdfVisible} bernilai \texttt{true}, dan aplikasi tidak sedang diakses melalui perangkat seluler (\texttt{!isMobile}).
+\singlespacing{}
+Di dalam elemen \texttt{<div>}, komponen \texttt{<PDFViewer>} dipanggil dengan dua properti, yaitu \texttt{chatId} dan \texttt{url}. Properti \texttt{chatId} digunakan untuk mengidentifikasi percakapan yang sedang berlangsung, sementara \texttt{url} merupakan alamat file PDF yang diunggah oleh pengguna dan akan ditampilkan. Komponen \texttt{PDFViewer} ini bertanggung jawab untuk menampilkan isi dokumen PDF, serta mendukung anotasi seperti penandaan teks (highlight), penambahan catatan, atau interaksi pengguna lainnya secara langsung di dalam file.
+\singlespacing{}
+Implementasi pratinjau PDF ini memanfaatkan pustaka \texttt{PDF.js} dari Mozilla untuk merender halaman PDF ke dalam elemen HTML dan menangani interaksi pengguna. Tampilan dibuat responsif dan ramah pengguna, dengan \texttt{overflow-y-auto} yang memungkinkan pengguna menggulir dokumen secara vertikal. Penggunaan \texttt{Tailwind CSS} dalam kelas-kelas seperti \texttt{flex-1}, \texttt{md:w-1/2}, dan \texttt{bg-gray-100} memastikan layout antarmuka tetap estetis dan fungsional.
+\singlespacing{}
+\begin{lstlisting}[language=TypeScript, caption={Pratinjau \textit{PDF} dengan fitur anotasi}, label={lst:pdf-anotasi}]
+<Show
+  when={
+    Boolean(attachmentUrl) &&
+    attachmentUrl !== '' &&
+    isPdfVisible &&
+    !isMobile
+  }
+>
+  <div className="flex-1 md:w-1/2 overflow-y-auto bg-gray-100">
+    <PDFViewer chatId={id} url={attachmentUrl as string} />
+  </div>
+</Show>
+\end{lstlisting}

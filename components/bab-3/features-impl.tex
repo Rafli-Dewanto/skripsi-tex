@@ -1,7 +1,8 @@
 \section{Implementasi Fitur Utama}
 \subsection{Upload dan Pratinjau PDF}
 Pengguna dapat mengunggah file PDF yang akan disimpan pada \texttt{Vercel Blob}. File ini kemudian dimuat dan dipratinjau menggunakan \texttt{PDF.js}.
-\input{components/bab-3/chat_code.tex}
+\input{components/bab-3/upload-code.tex}
+\input{components/bab-3/pdf-preview-code.tex}
 
 \subsection{Tanya Jawab Berbasis RAG}
 Sistem menggunakan pipeline \texttt{Langchain} untuk menjalankan \textit{Retrieval-Augmented Generation}:
@@ -13,6 +14,7 @@ Sistem menggunakan pipeline \texttt{Langchain} untuk menjalankan \textit{Retriev
   \item Retrieval saat tanya jawab berdasarkan \texttt{cosine similarity}
   \item Prompt otomatis digabung dengan hasil retrieval dan dikirim ke model GPT
 \end{enumerate}
+\input{components/bab-3/chat-code.tex}
 
 \subsection{Retrieval-Augmented Generation}
 Agar LLM dapat bekerja dengan dokumen pribadi seperti PDF, konten dokumen harus diproses dan disimpan dengan cara yang dapat diakses secara efisien oleh LLM.\@ Seluruh proses ini dikenal sebagai \emph{ingestion} \citep[p~.84]{oshin2024learning}. Ide intinya adalah mengubah teks menjadi representasi numerik yang disebut \emph{embeddings} dan menyimpannya dalam penyimpanan \emph{vektor store} (sejenis basis data vektor). Hal ini memungkinkan aplikasi untuk menemukan dan mengambil bagian yang paling relevan dari dokumen untuk menjawab pertanyaan spesifik pengguna. Proses ini melibatkan empat langkah utama:
@@ -32,10 +34,14 @@ Agar LLM dapat bekerja dengan dokumen pribadi seperti PDF, konten dokumen harus 
 \subsection{Pembuatan Sitasi Otomatis}
 Sistem melakukan ekstraksi metadata seperti judul, penulis, tahun, dan DOI dari PDF dan menyusunnya ke dalam format referensi (APA, MLA, IEEE, Harvard) secara otomatis.
 
+\input{components/bab-3/citation-code.tex}
+
 \subsection{Anotasi PDF}
 Menggunakan integrasi \texttt{PDF.js}, pengguna dapat melakukan:
 \begin{itemize}
   \item Highlight teks
   \item Menambahkan catatan
-  \item Menyimpan anotasi ke database untuk ditampilkan ulang
+  \item Menyimpan anotasi ke database \textit{redis} untuk ditampilkan ulang
 \end{itemize}
+
+\input{components/bab-3/annotations-code.tex}
